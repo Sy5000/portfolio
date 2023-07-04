@@ -1,0 +1,104 @@
+* {
+  border: dashed red 1px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 16px; /* Root El */
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PT Sans Narrow", sans-serif;
+}
+h1 {
+  font-size: 1rem; /*16*/
+}
+h2 {
+  font-size: 2rem; /*32*/
+}
+h3 {
+  font-size: 4rem; /*64*/
+}
+div {
+  border: dashed red 1px;
+}
+/* ----- layout wrappes -----*/
+u {
+  border-bottom: solid 2px;
+  text-decoration: none;
+  padding-bottom: 10px;
+}
+.flex {
+  display: flex;
+}
+.split {
+  justify-content: space-between;
+}
+.flexwrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+.flexend {
+  display: flex;
+  justify-content: flex-end;
+}
+.grid {
+  display: grid;
+  grid-gap: 20px; /* grid column then row gaps */
+  padding: 0px;
+  /* border:2px solid green; */
+}
+.hidden {
+  display: none;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.inline {
+  display: inline;
+}
+footer {
+  background-color: #fad56a;
+  width: 100%; /* bug 100vw causes scrollbar */
+  /* text-align: center;
+  padding: 1.5rem 0; */
+  padding-bottom: 4rem;
+}
+.item-a {
+  grid-column-start: 2;
+  grid-column-end: 12;
+}
+.item-b {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  padding-top: 2rem;
+}
+.item-c {
+  grid-column-start: 6;
+  grid-column-end: 12;
+  padding-top: 8rem;
+}
+.item-d {
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
+.item-e {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 600px) {
+}
