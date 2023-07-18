@@ -58,7 +58,7 @@
     <section id="toolkit">
       <div class="content-wrap flex-row">
         <div id="tech-text">
-          <span class="copy"><p>TECH</p></span>
+          <span><p>TECH</p></span>
           <h3>toolkit</h3>
         </div>
         <div id="tech-logos">
@@ -85,7 +85,7 @@
       <div class="sticky-wrap">
         <div class="sticky-div">
           <ul class="services-list display">
-            <li class="active">Concept</li>
+            <li>Concept</li>
             <li>UI/UX</li>
             <li>Development</li>
             <li>Q.A</li>
@@ -93,7 +93,7 @@
         </div>
         <div class="sticky-scroll">
           <h2>Services</h2>
-          <div>
+          <div id="concept">
             <hr />
             <h3>Direction & Purpose</h3>
             <hr />
@@ -110,7 +110,11 @@
             <br />
             <hr />
           </div>
-          <div>
+
+          <br />
+          <br />
+          <br />
+          <div id="ui-ux">
             <hr />
             <h3>Design Cycle</h3>
             <hr />
@@ -124,7 +128,11 @@
             <p>UI wire frames / Interactive Prortotypes</p>
             <br />
           </div>
-          <div>
+
+          <br />
+          <br />
+          <br />
+          <div id="development">
             <hr />
             <h3>Production</h3>
             <hr />
@@ -162,7 +170,11 @@
             <p>Optimised databases for performance</p>
             <br />
           </div>
-          <div>
+
+          <br />
+          <br />
+          <br />
+          <div id="q.a">
             <hr />
             <h3>Best Practices</h3>
             <hr />
@@ -191,28 +203,85 @@
         <div class="sticky-wrap">
           <div class="sticky-div">
             <div class="project-info">
-              <h3>Summer Escapes</h3>
-              <hr />
+              <div id="proj-01">
+                <h3>Summer Escapes</h3>
+                <hr />
 
-              <strong>UI & Database Design</strong>
-              <p>
-                Summer escapes is a small startup who&apos;s goal is to inform
-                visitors about holiday destinations using a library of user
-                generated content, their long term goal is to promote travel
-                bookings via their online platform.
-              </p>
+                <strong>UI & Database Design</strong>
+                <p>
+                  Summer escapes is a small startup who&apos;s goal is to inform
+                  visitors about holiday destinations using a library of user
+                  generated content, their long term goal is to promote travel
+                  bookings via their online platform.
+                </p>
 
-              <span class="project-stack">
-                <p>Adobe XD</p>
-                <p>PHP</p>
-                <p>SQL</p>
-              </span>
+                <span class="project-stack">
+                  <p>Adobe XD</p>
+                  <p>SQL</p>
+                  <p>PHP</p>
+                </span>
+              </div>
+
+              <div id="proj-02" class="hide">
+                <h3>HindiFlix -02</h3>
+                <hr />
+                <strong>Dynamic webpage and ticket system</strong>
+                <p>
+                  This platform was built for a small independent cinema
+                  specialising in Bollywood movies. Through their dynamic
+                  booking platform users choose from a range of &apos; currently
+                  screening&apos; movies, and are presented with appropriate
+                  dates and session times for that selection.
+                </p>
+
+                <span class="project-stack">
+                  <p>HTML 5</p>
+                  <p>CSS3</p>
+                  <p>Javascript + AJAX</p>
+                  <p>Bootstrap</p>
+                  <p>PHP</p>
+                  <p>MySQL</p>
+                </span>
+              </div>
+
+              <div id="proj-03" class="hide">
+                <h3>proj 003 -03</h3>
+                <hr />
+                <strong>Dynamic webpage and ticket system</strong>
+                <p>
+                  sdfgsdfg;ldfjg; ls;ldfkjg kl;fdg j;dflj dsfkl;l Through their
+                  dynamic booking platform users choose from a range of &apos;
+                  currently screening&apos; movies, and are presented with
+                  appropriate dates and session times for that selection.
+                </p>
+
+                <span class="project-stack">
+                  <p>HTML 5</p>
+                  <p>CSS3</p>
+                  <p>Javascript + AJAX</p>
+                  <p>Bootstrap</p>
+                  <p>PHP</p>
+                  <p>MySQL</p>
+                </span>
+              </div>
             </div>
           </div>
           <div class="sticky-scroll-img">
-            <img class="project-img" src="images/SummerEscConcepts_1.jpg" />
-            <img class="project-img" src="images/SummerEscConcepts_1.jpg" />
-            <img class="project-img" src="images/SummerEscConcepts_1.jpg" />
+            <img
+              id="proj-img-01"
+              class="project-img"
+              src="images/SummerEscConcepts_1.jpg"
+            />
+            <img
+              id="proj-img-02"
+              class="project-img"
+              src="images/SummerEscConcepts_1.jpg"
+            />
+            <img
+              id="proj-img-03"
+              class="project-img"
+              src="images/SummerEscConcepts_1.jpg"
+            />
           </div>
         </div>
       </div>
@@ -254,16 +323,16 @@
             <h2><span style="font-size: 2.75rem">&raquo;</span>Download C.V</h2>
           </div>
 
-          <div class="blurb copy">
+          <div class="blurb">
             <h4>&#10033;</h4>
             <strong>
-              <p>User friendly Interfaces,</p>
-              <p>Developer friendly code-bases</p>
+              <p>User friendly Interface,</p>
+              <p>Developer friendly code-base</p>
             </strong>
             <br />
           </div>
 
-          <div class="work-links copy">
+          <div class="work-links">
             <strong>Work</strong>
             <hr />
             <ul>
@@ -273,7 +342,7 @@
             </ul>
           </div>
 
-          <div class="socials copy">
+          <div class="socials">
             <strong>Follow</strong>
             <hr />
             <ul>
@@ -285,3 +354,254 @@
     </footer>
   </body>
 </html>
+
+<script>
+  //////////////////////////
+  // 'services' pointers
+  let foo = document.getElementById("services");
+  let foo2 = document.getElementById("concept");
+  let foo3 = document.getElementById("ui-ux");
+  let foo4 = document.getElementById("development");
+  let foo5 = document.getElementById("q.a");
+  let foo6 = document.querySelectorAll(".sticky-scroll>div");
+
+  const listItems = document.querySelectorAll(".services-list>li");
+
+  // Intersection Oberver API: toggle 'services' li headers
+
+  const obsCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      // console.log(entry);
+      if (entry.isIntersecting) {
+        // remove class from all // add to this intersection only
+        // console.log("add class");
+        // listItems[0].classList.add("active");
+      } else {
+        // listItems[0].classList.remove("active");
+        // console.log("remove class");
+      }
+    });
+  };
+
+  const obsOptions = {
+    //observer settings
+    root: null, // null = viewport/window
+    threshold: 0, // listen for when section leaves screen
+  };
+
+  const observer = new IntersectionObserver(obsCallback, obsOptions); //define observer
+
+  observer.observe(foo2);
+  observer.observe(foo3);
+  observer.observe(foo4);
+
+  //////////////////////////
+
+  console.log(listItems, "< these");
+
+  ////////////////////////////////////////////////////////
+  ////////// #'projects' section
+
+  // Pointers
+  const projImg1 = document.getElementById("proj-img-01");
+  const projImg2 = document.getElementById("proj-img-02");
+  const projImg3 = document.getElementById("proj-img-03");
+  const proj1 = document.getElementById("proj-01");
+  const proj2 = document.getElementById("proj-02");
+  const proj3 = document.getElementById("proj-03");
+
+  //////////////////////////
+  // IntersectionObserverAPI
+  //
+  // Callback functions
+  const proj1obsCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      // console.log(entry);
+      if (entry.isIntersecting) {
+        proj1.classList.remove("hide");
+      } else {
+        proj1.classList.add("hide");
+      }
+    });
+  };
+
+  const proj2obsCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      // console.log(entry);
+      if (entry.isIntersecting) {
+        proj2.classList.remove("hide");
+      } else {
+        proj2.classList.add("hide");
+      }
+    });
+  };
+
+  const proj3obsCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      // console.log(entry);
+      if (entry.isIntersecting) {
+        proj3.classList.remove("hide");
+      } else {
+        proj3.classList.add("hide");
+      }
+    });
+  };
+  // IntersectionObserverAPI options
+  const projObsOptions = {
+    root: null,
+    threshold: [0.3],
+  };
+  const projObsOptionsALT = {
+    root: null,
+    threshold: [0.99],
+  };
+
+  // Declare APIs
+  const proj1obs = new IntersectionObserver(
+    proj1obsCallback,
+    projObsOptionsALT
+  );
+  const proj2obs = new IntersectionObserver(proj2obsCallback, projObsOptions);
+  const proj3obs = new IntersectionObserver(proj3obsCallback, projObsOptions);
+
+  // Assign API to DOM elements
+  proj1obs.observe(projImg1);
+  proj2obs.observe(projImg2);
+  proj3obs.observe(projImg3);
+
+  ////////// END - #'projects' section
+  ////////////////////////////////////////////////////////
+
+  // function myFunc() {
+  // for (let i = 0; i < listItems.length; i++) {
+  //   if (listItems[i].classList.contains("active")) {
+  //     activeIndex = [i];
+  //     listItems[i].classList.remove("active");
+  //     listItems[i + 1].classList.add("active");
+  //     return;
+  //   } else {
+  //     // listItems[0].classList.add("active");
+  //   }
+  // }
+
+  // console.log("something");
+  // for (let i = 0; i < listItems.length; i++) {
+  //   console.log(listItems[i].classList, "classes to change");
+  //   if (listItems[i].classList.contains("active")) {
+  //     listItems[i].classList.remove("active");
+  //   }
+  // }
+
+  //   let i = 0;
+  //   let active = null;
+  //   while (i < 4) {
+  //     console.log(i);
+
+  //     // find 'active' index and remove class
+  //     if (listItems[i].classList.contains("active")) {
+  //       active = [i];
+  //       listItems[i].classList.remove("active");
+  //     }
+  //     // add 'active' class to next index
+  //     if (active <= 2) {
+  //       console.log("less than 3");
+  //       i++;
+  //       return;
+  //     } else {
+  //       //   // or back to start
+  //       console.log("move to 0");
+  //       i++;
+  //       return;
+  //     }
+  //   }
+  //   console.log(listItems, "switched 1 space here");
+  // }
+
+  // window.onscroll = function () {
+  //   if (window.pageYOffset >= foo2.offsetTop) {
+  //     myFunc();
+  //     document.body.onscroll = null;
+  //   } else {
+  //     // console.log("no func here");
+  //   }
+  // };
+
+  // console.log(window.pageYOffset, "< this num");
+
+  // };
+  /////////////
+  // console.log("js log");
+  //pointers and variables
+  // const scrollDiv = document.querySelector(".sticky-scroll-img");
+  // const el = document.querySelector(".project-img");
+  // const img1 = document.getElementById("proj-img-01");
+  // const img2 = document.getElementById("proj-img-02");
+  // const img3 = document.getElementById("proj-img-03");
+
+  //function to fade in / fade out articles
+
+  //eventlisteners to apply fadein / fadeout innerhtml active css class
+
+  // let imgPos = scrollDiv.offsetTop - document.body.scrollTop;
+
+  // document.addEventListener("scroll", (e) => {
+  //   // console.log(scrollDiv.scrollTop);
+  //   // console.log(img1.offsetTop, img2.offsetTop, img3.offsetTop, "Pos only"); /* absolute image positions */
+  // });
+
+  // window.onscroll = function (e) {
+  //   console.log(window.pageYOffset); /* find coordinates of window */
+
+  //   if (window.pageYOffset >= 3200) {
+  //     console.log("change styles now");
+  //   }
+  // };
+
+  // console.log(el);
+
+  // document.querySelector(".project-img").addEventListener("scroll", (a) => {
+  //   console.log(a);
+  // });
+  // document
+  //   .querySelector(".sticky-scroll-img")
+  //   .addEventListener("scroll", (a) => {
+  //     console.log(a);
+  //   });
+  // el.addEventListener("scroll", () => {
+  //   const scrolled = document.querySelector(".project-img").scrollTop;
+  //   console.log(scrolled);
+  // });
+
+  // const proj01 = document.getElementById("proj-01");
+  // const projImg01 = document.getElementById("proj-img-01");
+  // const proj02 = document.getElementById("proj-02");
+  // const projImg02 = document.getElementById("proj-img-02");
+  // const proj03 = document.getElementById("proj-03");
+  // const projImg03 = document.getElementById("proj-img-03");
+  // window.addEventListener("scroll", (event) => {
+  //   const image1 = document.getElementById("proj-img-01");
+
+  //   console.log("viewport was scrolled");
+  // });
+
+  // window.onscroll = function (e) {
+  //   console.log("scrolling");
+  //   if ((scrollDiv.scrollTop = 0)) {
+  //     console.log("do something");
+  //   }
+  // };
+
+  // var area = document.getElementsByClassName("project-info")[0];
+  // area.onscroll = function () {
+  //   console.log(this.scrollTop, "scrolling");
+  // };
+  // window.onscroll(function (event) {
+  //   const image1 = document.getElementsByClassName("sticky-scroll-img");
+  //   console.log("scrolling");
+  //   // if ($(this).scrollTop() > 50) {
+  //   //   image1.fadeOut();
+  //   // } else {
+  //   //   $(".scroll-hide").fadeIn();
+  //   // }
+  // });
+</script>

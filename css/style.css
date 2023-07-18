@@ -144,13 +144,13 @@ ul {
 
   > div:last-child {
     height: 100vh;
-    background-color: #cb1c68;
   }
 }
 .active {
   font-size: 2rem;
   font-weight: 900;
   padding: 0.5rem;
+  color: #00ffff;
 }
 /***END-SERVICES***/
 
@@ -162,13 +162,17 @@ ul {
 .project-img {
   width: 100%;
   height: auto;
-  margin-top: 33vh;
+  margin-top: 80vh;
 }
 .project-img:first-child {
   margin-top: 40vh;
 }
 .project-img:last-child {
   margin-bottom: 30vh;
+}
+.project-info {
+  padding: 30vh 1rem;
+  height: inherit;
 }
 .project-stack {
   color: #fad56a;
@@ -178,9 +182,11 @@ ul {
   display: flex;
   gap: 2.5rem;
 }
-.project-info {
-  padding: 30vh 1rem;
-  height: inherit;
+.hide {
+  display: none;
+}
+#proj-02 {
+  /* display: none; */
 }
 /***END-PROJECTS***/
 
