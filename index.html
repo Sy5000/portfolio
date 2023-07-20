@@ -86,10 +86,12 @@
         <div class="sticky-div">
           <ul class="services-list display">
             <li>Concept</li>
-            <li>UI/UX</li>
+            <li class="active">UI/UX</li>
             <li>Development</li>
             <li>Q.A</li>
           </ul>
+          <button onclick="iterateBack(scrollDown)">back</button>
+          <button onclick="iterateForward(scrollDown)">forward</button>
         </div>
         <div class="sticky-scroll">
           <h2>Services</h2>
@@ -356,16 +358,106 @@
 </html>
 
 <script>
+  /////////////////////////////////////////////////////////////////
+  // Pointers
+  const listItems = document.querySelectorAll(".services-list>li");
+  console.log(listItems, "< these");
+
+  /////////////////////////////////////////////////
+  // Scroll direction
+
+  let oldYoffset = 0; //init value
+  let scrollDown = true; //true - down //false - up
+
+  window.addEventListener("scroll", function (e) {
+    let newYoffset = window.pageYOffset; // new value from scroll event
+
+    if (oldYoffset - newYoffset < 0) {
+      // compare values to determine scroll direction
+      scrollDown = true;
+    } else if (oldYoffset - newYoffset > 0) {
+      scrollDown = false;
+    }
+    oldYoffset = newYoffset; // update the value
+  });
+
+  ////////////////////////////////////////////////////
+  // #services titles
+
+  const iterateForward = function (scrollDown) {
+    if (scrollDown === true) {
+      for (let i = 0; i < listItems.length - 1; i++) {
+        if (listItems[i].classList.contains("active")) {
+          listItems[i].classList.remove("active");
+          listItems[i + 1].classList.add("active");
+          break;
+        }
+      }
+    }
+  };
+  const iterateBack = function (scrollDown) {
+    if (scrollDown !== true) {
+      for (let i = 1; i < listItems.length; i++) {
+        if (listItems[i].classList.contains("active")) {
+          listItems[i].classList.remove("active");
+          listItems[i - 1].classList.add("active");
+        }
+      }
+    }
+  };
+
+  const serviceListPosition = function (scrollDown) {
+    const foo = document.getElementById("development");
+    const windowHeight = window.innerHeight;
+    let elementTop = foo.getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      console.log("trigger");
+      iterateForward();
+      return;
+    } else {
+      console.log("do nothing yet");
+      iterateBack();
+      return;
+    }
+  };
+
+  window.addEventListener("scroll", serviceListPosition); //too many function calls
+
+  ////////////////////////////////////////////////////////
+  ////////// #'services' section - 1 DIRECTION ONLY
+  // let foo = document.getElementById("services");
+  // let foo2 = document.getElementById("concept");
+  // let foo3 = document.getElementById("ui-ux");
+  // let foo4 = document.getElementById("development");
+  // let foo5 = document.getElementById("q.a");
+  // let foo6 = document.querySelectorAll(".sticky-scroll>div");
+
+  // const rotateActiveClass = function () {
+  //   console.log(listItems, "move this +1");
+  //   for (let i = 0; i < 4; i++) {
+  //     let activeClass = null;
+
+  //     if (listItems[i].classList.contains("active")) {
+  //       activeClass = [i];
+  //       listItems[i].classList.remove("active");
+
+  //       if (activeClass < 3) {
+  //         listItems[i + 1].classList.add("active");
+  //       } else {
+  //         listItems[0].classList.add("active");
+  //       }
+
+  //       break;
+  //     }
+  //   }
+  // };
+
+  ////////// END - #'projects' section
+  ////////////////////////////////////////////////////////
   //////////////////////////
   // 'services' pointers
-  let foo = document.getElementById("services");
-  let foo2 = document.getElementById("concept");
-  let foo3 = document.getElementById("ui-ux");
-  let foo4 = document.getElementById("development");
-  let foo5 = document.getElementById("q.a");
-  let foo6 = document.querySelectorAll(".sticky-scroll>div");
-
-  const listItems = document.querySelectorAll(".services-list>li");
 
   // Intersection Oberver API: toggle 'services' li headers
 
@@ -391,13 +483,11 @@
 
   const observer = new IntersectionObserver(obsCallback, obsOptions); //define observer
 
-  observer.observe(foo2);
-  observer.observe(foo3);
-  observer.observe(foo4);
+  // observer.observe(foo2);
+  // observer.observe(foo3);
+  // observer.observe(foo4);
 
   //////////////////////////
-
-  console.log(listItems, "< these");
 
   ////////////////////////////////////////////////////////
   ////////// #'projects' section
