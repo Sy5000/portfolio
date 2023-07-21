@@ -85,8 +85,8 @@
       <div class="sticky-wrap">
         <div class="sticky-div">
           <ul class="services-list display">
-            <li>Concept</li>
-            <li class="active">UI/UX</li>
+            <li class="active">Concept</li>
+            <li>UI/UX</li>
             <li>Development</li>
             <li>Q.A</li>
           </ul>
@@ -361,19 +361,19 @@
   /////////////////////////////////////////////////////////////////
   // Pointers
   const listItems = document.querySelectorAll(".services-list>li");
-  console.log(listItems, "< these");
-
+  const servicesDivs = document.querySelectorAll(".sticky-scroll>div");
+  console.log(servicesDivs);
   /////////////////////////////////////////////////
   // Scroll direction
 
   let oldYoffset = 0; //init value
-  let scrollDown = true; //true - down //false - up
+  let scrollDown = true; //true = down //false = up
 
   window.addEventListener("scroll", function (e) {
-    let newYoffset = window.pageYOffset; // new value from scroll event
+    let newYoffset = window.pageYOffset; // new value ea scroll event
 
+    // compare values to determine scroll direction
     if (oldYoffset - newYoffset < 0) {
-      // compare values to determine scroll direction
       scrollDown = true;
     } else if (oldYoffset - newYoffset > 0) {
       scrollDown = false;
@@ -406,24 +406,50 @@
     }
   };
 
-  const serviceListPosition = function (scrollDown) {
-    const foo = document.getElementById("development");
-    const windowHeight = window.innerHeight;
-    let elementTop = foo.getBoundingClientRect().top;
-    const elementVisible = 150;
+  ////////////////////////////////////////////////////
+  // #services intersectionObserver API
+  let foo = document.getElementById("ui-ux");
 
-    if (elementTop < windowHeight - elementVisible) {
-      console.log("trigger");
-      iterateForward();
-      return;
-    } else {
-      console.log("do nothing yet");
-      iterateBack();
-      return;
-    }
+  let callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      // console.log(entry);
+      // console.log(entry.boundingClientRect.top, "<- top");
+      if (entry.boundingClientRect.top < 100) {
+        console.log("trigger");
+        iterateBack(scrollDown);
+        iterateForward(scrollDown);
+      }
+    });
   };
 
-  window.addEventListener("scroll", serviceListPosition); //too many function calls
+  let options = {
+    root: null, //defaults to browser viewport
+    rootMargin: "0px",
+    threshold: [0.99], //0 = 1pixel visibility
+  };
+
+  const servicesObserver = new IntersectionObserver(callback, options);
+
+  servicesObserver.observe(foo);
+
+  // const serviceListPosition = function (scrollDown) {
+  //   const foo = document.getElementById("development");
+  //   const windowHeight = window.innerHeight;
+  //   let elementTop = foo.getBoundingClientRect().top;
+  //   const elementVisible = 150;
+
+  //   if (elementTop < windowHeight - elementVisible) {
+  //     console.log("trigger");
+  //     iterateForward();
+  //     return;
+  //   } else {
+  //     console.log("do nothing yet");
+  //     iterateBack();
+  //     return;
+  //   }
+  // };
+
+  // window.addEventListener("scroll", serviceListPosition); //too many function calls
 
   ////////////////////////////////////////////////////////
   ////////// #'services' section - 1 DIRECTION ONLY
