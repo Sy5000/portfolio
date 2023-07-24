@@ -116,9 +116,9 @@
           <br />
           <br />
           <br />
-          <div id="ui-ux">
+          <div>
             <hr />
-            <h3>Design Cycle</h3>
+            <h3 id="servicesHeader2">Design Cycle</h3>
             <hr />
             <p>
               Strategy - establish use cases, Information architecture, site
@@ -134,9 +134,9 @@
           <br />
           <br />
           <br />
-          <div id="development">
+          <div>
             <hr />
-            <h3>Production</h3>
+            <h3 id="servicesHeader3">Production</h3>
             <hr />
             <strong>Front End</strong><br />
             <br />
@@ -176,9 +176,9 @@
           <br />
           <br />
           <br />
-          <div id="q.a">
+          <div>
             <hr />
-            <h3>Best Practices</h3>
+            <h3 id="servicesHeader4">Best Practices</h3>
             <hr />
             <br />
 
@@ -361,10 +361,9 @@
   /////////////////////////////////////////////////////////////////
   // Pointers
   const listItems = document.querySelectorAll(".services-list>li");
-  const servicesDivs = document.querySelectorAll(".sticky-scroll>div");
-  console.log(servicesDivs);
+
   /////////////////////////////////////////////////
-  // Scroll direction
+  // Return scroll direction
 
   let oldYoffset = 0; //init value
   let scrollDown = true; //true = down //false = up
@@ -382,7 +381,7 @@
   });
 
   ////////////////////////////////////////////////////
-  // #services titles
+  // #services toggle titles
 
   const iterateForward = function (scrollDown) {
     if (scrollDown === true) {
@@ -408,29 +407,38 @@
 
   ////////////////////////////////////////////////////
   // #services intersectionObserver API
-  let foo = document.getElementById("ui-ux");
+  // observe headers and rotate to correct title
+
+  const servicesListHeader2 = document.getElementById("servicesHeader2");
+  const servicesListHeader3 = document.getElementById("servicesHeader3");
+  const servicesListHeader4 = document.getElementById("servicesHeader4");
 
   let callback = (entries, observer) => {
     entries.forEach((entry) => {
-      // console.log(entry);
+      console.log(entry);
       // console.log(entry.boundingClientRect.top, "<- top");
-      if (entry.boundingClientRect.top < 100) {
-        console.log("trigger");
+      if (
+        entry.boundingClientRect.top > 0 &&
+        entry.boundingClientRect.top < 26
+      ) {
+        // console.log("trigger");
         iterateBack(scrollDown);
         iterateForward(scrollDown);
       }
     });
   };
 
-  let options = {
+  let servicesOptions = {
     root: null, //defaults to browser viewport
-    rootMargin: "0px",
-    threshold: [0.99], //0 = 1pixel visibility
+    rootMargin: "-25px",
+    threshold: [0.99], //0 = 1pixel visibility // WO for larger el that wont be 99visible
   };
 
-  const servicesObserver = new IntersectionObserver(callback, options);
+  const servicesObserver = new IntersectionObserver(callback, servicesOptions);
 
-  servicesObserver.observe(foo);
+  servicesObserver.observe(servicesListHeader2);
+  servicesObserver.observe(servicesListHeader3);
+  servicesObserver.observe(servicesListHeader4);
 
   // const serviceListPosition = function (scrollDown) {
   //   const foo = document.getElementById("development");
