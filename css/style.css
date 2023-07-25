@@ -88,7 +88,7 @@ ul {
   height: 10px;
   background: var(--gradient);
 }
-#tech-logos {
+/* #tech-logos {
   display: inherit;
   gap: 2rem;
   width: 100%;
@@ -101,11 +101,61 @@ ul {
   }
 }
 #tech-logos::-webkit-scrollbar {
-  display: none;
-}
+  /* display: none; 
+} 
+/*
 #tech-text {
   width: 286px;
+} */
+/***** arrows *****/
+#tech-logos-wrap {
+  max-width: 85%;
+  display: inherit;
 }
+#tech-logos {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  gap: 2rem;
+  align-self: center;
+  display: inherit;
+}
+#tech-logos::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa;
+}
+#tech-logos::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+#tech-logos {
+  > div > img {
+    width: 74px;
+    height: 74px;
+    overflow: hidden;
+  }
+}
+/* #tech-arrows {
+  padding: 0px 30px;
+  position: relative;
+}
+.left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.right {
+  top: 50%;
+  transform: translateY(-50%);
+} */
+
 /***END-TOOLKIT***/
 
 /***SERVICES***/
@@ -263,6 +313,7 @@ footer {
 /***END-FOOTER***/
 
 @media screen and (max-width: 600px) {
+  /***** about *****/
   .content-wrap {
     width: 100%;
     padding: 1em; /* 16px margins/32 gutters */
@@ -279,12 +330,26 @@ footer {
   .about {
     width: inherit;
   }
-  .sticky-menu {
-    display: none;
-  }
+  /***** toolkit *****/
   .flex-row {
     flex-direction: column;
   }
+  /***** services *****/
+  .sticky-div {
+    display: none;
+  }
+  .sticky-scroll {
+    > div:last-child {
+      height: auto;
+    }
+  }
+  /***** experiments *****/
+  #experiments {
+    > p {
+      width: 75%;
+    }
+  }
+  /***** footer *****/
   .hierarchical-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

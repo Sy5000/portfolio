@@ -61,7 +61,8 @@
           <span><p>TECH</p></span>
           <h3>toolkit</h3>
         </div>
-        <div id="tech-logos">
+
+        <!-- <div id="tech-logos">
           <div><img src="images/html5.png" /></div>
           <div><img src="images/css3.png" /></div>
           <div><img src="images/js.png" /></div>
@@ -76,6 +77,26 @@
           <div><img src="images/docker.png" /></div>
           <div><img src="images/bootstrap.png" /></div>
           <div><img src="images/jquery.png" /></div>
+        </div> -->
+        <div id="tech-logos-wrap">
+          <button class="left" onclick="leftScroll()">Left</button>
+          <div id="tech-logos">
+            <div><img src="images/html5.png" /></div>
+            <div><img src="images/css3.png" /></div>
+            <div><img src="images/js.png" /></div>
+            <div><img src="images/php.png" /></div>
+            <div><img src="images/mysql.png" /></div>
+            <div><img src="images/node.png" /></div>
+            <div><img src="images/express.png" /></div>
+            <div><img src="images/swagger.png" /></div>
+            <div><img src="images/mongodb.png" /></div>
+            <div><img src="images/git.png" /></div>
+            <div><img src="images/aws.png" /></div>
+            <div><img src="images/docker.png" /></div>
+            <div><img src="images/bootstrap.png" /></div>
+            <div><img src="images/jquery.png" /></div>
+          </div>
+          <button class="right" onclick="rightScroll()">Right</button>
         </div>
       </div>
     </section>
@@ -90,8 +111,6 @@
             <li>Development</li>
             <li>Q.A</li>
           </ul>
-          <button onclick="iterateBack(scrollDown)">back</button>
-          <button onclick="iterateForward(scrollDown)">forward</button>
         </div>
         <div class="sticky-scroll">
           <h2>Services</h2>
@@ -112,10 +131,6 @@
             <br />
             <hr />
           </div>
-
-          <br />
-          <br />
-          <br />
           <div>
             <hr />
             <h3 id="servicesHeader2">Design Cycle</h3>
@@ -130,10 +145,6 @@
             <p>UI wire frames / Interactive Prortotypes</p>
             <br />
           </div>
-
-          <br />
-          <br />
-          <br />
           <div>
             <hr />
             <h3 id="servicesHeader3">Production</h3>
@@ -172,10 +183,6 @@
             <p>Optimised databases for performance</p>
             <br />
           </div>
-
-          <br />
-          <br />
-          <br />
           <div>
             <hr />
             <h3 id="servicesHeader4">Best Practices</h3>
@@ -358,6 +365,16 @@
 </html>
 
 <script>
+  ///////////////////////////////////////////////////
+  // #toolkit scrollbar
+  function leftScroll() {
+    const left = document.querySelector(".scroll-images");
+    left.scrollBy(200, 0);
+  }
+  function rightScroll() {
+    const right = document.querySelector(".scroll-images");
+    right.scrollBy(-200, 0);
+  }
   /////////////////////////////////////////////////////////////////
   // Pointers
   const listItems = document.querySelectorAll(".services-list>li");
@@ -415,11 +432,11 @@
 
   let callback = (entries, observer) => {
     entries.forEach((entry) => {
-      console.log(entry);
+      // console.log(entry);
       // console.log(entry.boundingClientRect.top, "<- top");
       if (
         entry.boundingClientRect.top > 0 &&
-        entry.boundingClientRect.top < 26
+        entry.boundingClientRect.top < 50
       ) {
         // console.log("trigger");
         iterateBack(scrollDown);
@@ -429,9 +446,9 @@
   };
 
   let servicesOptions = {
-    root: null, //defaults to browser viewport
-    rootMargin: "-25px",
-    threshold: [0.99], //0 = 1pixel visibility // WO for larger el that wont be 99visible
+    root: null, // defaults to browser viewport
+    rootMargin: "-25px", // 1/2way point of trigger area //+25px scroll buffer for ea scroll dir 🔺+🔻
+    threshold: [0.99], //0 = 1pixel visibility
   };
 
   const servicesObserver = new IntersectionObserver(callback, servicesOptions);
@@ -440,217 +457,81 @@
   servicesObserver.observe(servicesListHeader3);
   servicesObserver.observe(servicesListHeader4);
 
-  // const serviceListPosition = function (scrollDown) {
-  //   const foo = document.getElementById("development");
-  //   const windowHeight = window.innerHeight;
-  //   let elementTop = foo.getBoundingClientRect().top;
-  //   const elementVisible = 150;
-
-  //   if (elementTop < windowHeight - elementVisible) {
-  //     console.log("trigger");
-  //     iterateForward();
-  //     return;
-  //   } else {
-  //     console.log("do nothing yet");
-  //     iterateBack();
-  //     return;
-  //   }
-  // };
-
-  // window.addEventListener("scroll", serviceListPosition); //too many function calls
-
+  ////////// END
   ////////////////////////////////////////////////////////
-  ////////// #'services' section - 1 DIRECTION ONLY
-  // let foo = document.getElementById("services");
-  // let foo2 = document.getElementById("concept");
-  // let foo3 = document.getElementById("ui-ux");
-  // let foo4 = document.getElementById("development");
-  // let foo5 = document.getElementById("q.a");
-  // let foo6 = document.querySelectorAll(".sticky-scroll>div");
-
-  // const rotateActiveClass = function () {
-  //   console.log(listItems, "move this +1");
-  //   for (let i = 0; i < 4; i++) {
-  //     let activeClass = null;
-
-  //     if (listItems[i].classList.contains("active")) {
-  //       activeClass = [i];
-  //       listItems[i].classList.remove("active");
-
-  //       if (activeClass < 3) {
-  //         listItems[i + 1].classList.add("active");
-  //       } else {
-  //         listItems[0].classList.add("active");
-  //       }
-
-  //       break;
-  //     }
-  //   }
-  // };
-
-  ////////// END - #'projects' section
-  ////////////////////////////////////////////////////////
-  //////////////////////////
-  // 'services' pointers
-
-  // Intersection Oberver API: toggle 'services' li headers
-
-  const obsCallback = function (entries, observer) {
-    entries.forEach((entry) => {
-      // console.log(entry);
-      if (entry.isIntersecting) {
-        // remove class from all // add to this intersection only
-        // console.log("add class");
-        // listItems[0].classList.add("active");
-      } else {
-        // listItems[0].classList.remove("active");
-        // console.log("remove class");
-      }
-    });
-  };
-
-  const obsOptions = {
-    //observer settings
-    root: null, // null = viewport/window
-    threshold: 0, // listen for when section leaves screen
-  };
-
-  const observer = new IntersectionObserver(obsCallback, obsOptions); //define observer
-
-  // observer.observe(foo2);
-  // observer.observe(foo3);
-  // observer.observe(foo4);
-
-  //////////////////////////
 
   ////////////////////////////////////////////////////////
   ////////// #'projects' section
 
   // Pointers
-  const projImg1 = document.getElementById("proj-img-01");
-  const projImg2 = document.getElementById("proj-img-02");
-  const projImg3 = document.getElementById("proj-img-03");
-  const proj1 = document.getElementById("proj-01");
-  const proj2 = document.getElementById("proj-02");
-  const proj3 = document.getElementById("proj-03");
+  // const projImg1 = document.getElementById("proj-img-01");
+  // const projImg2 = document.getElementById("proj-img-02");
+  // const projImg3 = document.getElementById("proj-img-03");
+  // const proj1 = document.getElementById("proj-01");
+  // const proj2 = document.getElementById("proj-02");
+  // const proj3 = document.getElementById("proj-03");
 
   //////////////////////////
   // IntersectionObserverAPI
   //
   // Callback functions
-  const proj1obsCallback = function (entries, observer) {
-    entries.forEach((entry) => {
-      // console.log(entry);
-      if (entry.isIntersecting) {
-        proj1.classList.remove("hide");
-      } else {
-        proj1.classList.add("hide");
-      }
-    });
-  };
+  // const proj1obsCallback = function (entries, observer) {
+  //   entries.forEach((entry) => {
+  //     // console.log(entry);
+  //     if (entry.isIntersecting) {
+  //       proj1.classList.remove("hide");
+  //     } else {
+  //       proj1.classList.add("hide");
+  //     }
+  //   });
+  // };
 
-  const proj2obsCallback = function (entries, observer) {
-    entries.forEach((entry) => {
-      // console.log(entry);
-      if (entry.isIntersecting) {
-        proj2.classList.remove("hide");
-      } else {
-        proj2.classList.add("hide");
-      }
-    });
-  };
+  // const proj2obsCallback = function (entries, observer) {
+  //   entries.forEach((entry) => {
+  //     // console.log(entry);
+  //     if (entry.isIntersecting) {
+  //       proj2.classList.remove("hide");
+  //     } else {
+  //       proj2.classList.add("hide");
+  //     }
+  //   });
+  // };
 
-  const proj3obsCallback = function (entries, observer) {
-    entries.forEach((entry) => {
-      // console.log(entry);
-      if (entry.isIntersecting) {
-        proj3.classList.remove("hide");
-      } else {
-        proj3.classList.add("hide");
-      }
-    });
-  };
-  // IntersectionObserverAPI options
-  const projObsOptions = {
-    root: null,
-    threshold: [0.3],
-  };
-  const projObsOptionsALT = {
-    root: null,
-    threshold: [0.99],
-  };
+  // const proj3obsCallback = function (entries, observer) {
+  //   entries.forEach((entry) => {
+  //     // console.log(entry);
+  //     if (entry.isIntersecting) {
+  //       proj3.classList.remove("hide");
+  //     } else {
+  //       proj3.classList.add("hide");
+  //     }
+  //   });
+  // };
+  // // IntersectionObserverAPI options
+  // const projObsOptions = {
+  //   root: null,
+  //   threshold: [0.3],
+  // };
+  // const projObsOptionsALT = {
+  //   root: null,
+  //   threshold: [0.99],
+  // };
 
-  // Declare APIs
-  const proj1obs = new IntersectionObserver(
-    proj1obsCallback,
-    projObsOptionsALT
-  );
-  const proj2obs = new IntersectionObserver(proj2obsCallback, projObsOptions);
-  const proj3obs = new IntersectionObserver(proj3obsCallback, projObsOptions);
+  // // Declare APIs
+  // const proj1obs = new IntersectionObserver(
+  //   proj1obsCallback,
+  //   projObsOptionsALT
+  // );
+  // const proj2obs = new IntersectionObserver(proj2obsCallback, projObsOptions);
+  // const proj3obs = new IntersectionObserver(proj3obsCallback, projObsOptions);
 
-  // Assign API to DOM elements
-  proj1obs.observe(projImg1);
-  proj2obs.observe(projImg2);
-  proj3obs.observe(projImg3);
+  // // Assign API to DOM elements
+  // proj1obs.observe(projImg1);
+  // proj2obs.observe(projImg2);
+  // proj3obs.observe(projImg3);
 
   ////////// END - #'projects' section
   ////////////////////////////////////////////////////////
-
-  // function myFunc() {
-  // for (let i = 0; i < listItems.length; i++) {
-  //   if (listItems[i].classList.contains("active")) {
-  //     activeIndex = [i];
-  //     listItems[i].classList.remove("active");
-  //     listItems[i + 1].classList.add("active");
-  //     return;
-  //   } else {
-  //     // listItems[0].classList.add("active");
-  //   }
-  // }
-
-  // console.log("something");
-  // for (let i = 0; i < listItems.length; i++) {
-  //   console.log(listItems[i].classList, "classes to change");
-  //   if (listItems[i].classList.contains("active")) {
-  //     listItems[i].classList.remove("active");
-  //   }
-  // }
-
-  //   let i = 0;
-  //   let active = null;
-  //   while (i < 4) {
-  //     console.log(i);
-
-  //     // find 'active' index and remove class
-  //     if (listItems[i].classList.contains("active")) {
-  //       active = [i];
-  //       listItems[i].classList.remove("active");
-  //     }
-  //     // add 'active' class to next index
-  //     if (active <= 2) {
-  //       console.log("less than 3");
-  //       i++;
-  //       return;
-  //     } else {
-  //       //   // or back to start
-  //       console.log("move to 0");
-  //       i++;
-  //       return;
-  //     }
-  //   }
-  //   console.log(listItems, "switched 1 space here");
-  // }
-
-  // window.onscroll = function () {
-  //   if (window.pageYOffset >= foo2.offsetTop) {
-  //     myFunc();
-  //     document.body.onscroll = null;
-  //   } else {
-  //     // console.log("no func here");
-  //   }
-  // };
-
-  // console.log(window.pageYOffset, "< this num");
 
   // };
   /////////////
