@@ -48,7 +48,7 @@ header {
   height: 50px;
 }
 
-/***TYPOGRAPHY**/
+/*** TYPOGRAPHY **/
 .display {
   font-family: "PT Sans Narrow", sans-serif; /* D.R.Y */
   font-weight: 700;
@@ -76,9 +76,9 @@ h3 {
 ul {
   list-style: none;
 }
-/***TYPOGRAPHY**/
+/*** /TYPOGRAPHY **/
 
-/***TOOLKIT***/
+/*** TOOLKIT ***/
 #toolkit {
   width: 100%;
   background-color: #454960;
@@ -111,6 +111,8 @@ ul {
 #tech-logos-wrap {
   max-width: 85%;
   display: inherit;
+  padding: 0 2rem;
+  position: relative;
 }
 #tech-logos {
   width: 100%;
@@ -127,9 +129,10 @@ ul {
   display: inherit;
 }
 #tech-logos::-webkit-scrollbar {
-  width: 5px;
+  display: none;
+  /* width: 5px;
   height: 8px;
-  background-color: #aaa;
+  background-color: #aaa; */
 }
 #tech-logos::-webkit-scrollbar-thumb {
   background-color: black;
@@ -141,10 +144,6 @@ ul {
     overflow: hidden;
   }
 }
-/* #tech-arrows {
-  padding: 0px 30px;
-  position: relative;
-}
 .left {
   position: absolute;
   left: 0;
@@ -152,13 +151,25 @@ ul {
   transform: translateY(-50%);
 }
 .right {
+  position: absolute;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
-} */
+}
 
-/***END-TOOLKIT***/
+.scrollButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #454960;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  border: white 1px solid;
+}
+/*** /TOOLKIT ***/
 
-/***SERVICES***/
+/*** SERVICES ***/
 #services {
 }
 .sticky-wrap,
@@ -193,7 +204,7 @@ ul {
   width: 604px;
 
   > div:last-child {
-    height: 100vh;
+    height: 75vh;
   }
 }
 .active {
@@ -202,9 +213,84 @@ ul {
   padding: 0.5rem;
   color: #00ffff;
 }
-/***END-SERVICES***/
+/*** /SERVICES ***/
 
-/***PROJECTS***/
+/*** PROJECTS ***/
+/*** animation ***/
+.slide-effect {
+  /* font-size: 2rem; */
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  /* padding: 2rem; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.slideUp,
+.slideDown,
+.fadeIn,
+.slideRight {
+  position: relative;
+  opacity: 0;
+  font-size: 35px;
+}
+.slideUp {
+  font-size: 2rem;
+  top: 60px;
+  /* left: 10px; */
+  animation: slideUp ease 0.6s forwards 0.8s;
+}
+.slideDown {
+  top: -40px;
+  /* left: 5px; */
+  animation: slideDown ease 0.8s forwards 1.4s;
+}
+.fadeIn {
+  padding: 1rem;
+  font-size: 1rem;
+  animation: fadeIn ease 1s forwards 1.25s;
+}
+.slideRight {
+  animation: slideRight 0.1s ease-in forwards 0.8s;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-60px);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(40px);
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*** /animation ***/
 .sticky-scroll-img {
   width: 710px;
   padding: 1rem;
@@ -212,13 +298,15 @@ ul {
 .project-img {
   width: 100%;
   height: auto;
-  margin-top: 80vh;
+  margin: 1rem 0 1rem 0;
+  /* margin-top: 80vh; */
+  margin-bottom: 50vh;
 }
 .project-img:first-child {
-  margin-top: 40vh;
+  margin-top: 30vh;
 }
 .project-img:last-child {
-  margin-bottom: 30vh;
+  /* margin-bottom: 30vh; */
 }
 .project-info {
   padding: 30vh 1rem;
@@ -238,9 +326,9 @@ ul {
 #proj-02 {
   /* display: none; */
 }
-/***END-PROJECTS***/
+/*** /PROJECTS ***/
 
-/***EXPERIMENTS***/
+/*** EXPERIMENTS ***/
 #experiments > p {
   width: 50%;
   font-size: 1.5rem;
@@ -265,9 +353,9 @@ ul {
   height: 33vh;
   border: solid 2px aquamarine;
 }
-/***END-EXPERIMENTS***/
+/*** /EXPERIMENTS ***/
 
-/***FOOTER***/
+/*** FOOTER ***/
 footer {
   background-color: #fad56a;
   color: #343134;
@@ -310,7 +398,7 @@ footer {
   padding: 0 3rem 0 0;
   border-bottom: #343134 solid 3px;
 }
-/***END-FOOTER***/
+/*** /FOOTER ***/
 
 @media screen and (max-width: 600px) {
   /***** about *****/
@@ -334,6 +422,9 @@ footer {
   .flex-row {
     flex-direction: column;
   }
+  #tech-logos-wrap {
+    max-width: 100%;
+  }
   /***** services *****/
   .sticky-div {
     display: none;
@@ -342,6 +433,25 @@ footer {
     > div:last-child {
       height: auto;
     }
+  }
+  /***** projects *****/
+  .project-summary {
+    margin-bottom: 10vh;
+  }
+  .sticky-scroll-img {
+    width: 100%;
+    padding: 1rem;
+  }
+  .project-img:first-child {
+    margin-top: 10vh;
+  }
+  .project-img {
+    margin-bottom: 0rem;
+  }
+
+  .project-stack {
+    width: 100%;
+    flex-wrap: wrap;
   }
   /***** experiments *****/
   #experiments {

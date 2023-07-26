@@ -62,24 +62,10 @@
           <h3>toolkit</h3>
         </div>
 
-        <!-- <div id="tech-logos">
-          <div><img src="images/html5.png" /></div>
-          <div><img src="images/css3.png" /></div>
-          <div><img src="images/js.png" /></div>
-          <div><img src="images/php.png" /></div>
-          <div><img src="images/mysql.png" /></div>
-          <div><img src="images/node.png" /></div>
-          <div><img src="images/express.png" /></div>
-          <div><img src="images/swagger.png" /></div>
-          <div><img src="images/mongodb.png" /></div>
-          <div><img src="images/git.png" /></div>
-          <div><img src="images/aws.png" /></div>
-          <div><img src="images/docker.png" /></div>
-          <div><img src="images/bootstrap.png" /></div>
-          <div><img src="images/jquery.png" /></div>
-        </div> -->
         <div id="tech-logos-wrap">
-          <button class="left" onclick="leftScroll()">Left</button>
+          <button class="left scrollButton" onclick="leftScroll()">
+            &laquo;
+          </button>
           <div id="tech-logos">
             <div><img src="images/html5.png" /></div>
             <div><img src="images/css3.png" /></div>
@@ -96,7 +82,9 @@
             <div><img src="images/bootstrap.png" /></div>
             <div><img src="images/jquery.png" /></div>
           </div>
-          <button class="right" onclick="rightScroll()">Right</button>
+          <button class="right scrollButton" onclick="rightScroll()">
+            &raquo;
+          </button>
         </div>
       </div>
     </section>
@@ -212,7 +200,26 @@
         <div class="sticky-wrap">
           <div class="sticky-div">
             <div class="project-info">
-              <div id="proj-01">
+              <button onclick="myFunction()">fade in?</button>
+
+              <div id="dynamic-content">dynamic display here</div>
+              <!-- <div class="project-number-one-toggle">
+                <div class="slide-effect display">
+                  <div class="slideUp">Slide up</div> -->
+              <!-- <div class="slideDown">Slide Down</div> -->
+              <!-- </div>
+                <div class="slide-effect"><hr class="slideRight" /></div>
+                <div class="fadeIn">
+                  <p>
+                    Summer escapes is a small startup who&apos;s goal is to
+                    inform visitors about holiday destinations using a library
+                    of user generated content, their long term goal is to
+                    promote travel bookings via their online platform.
+                  </p>
+                </div>
+              </div> -->
+
+              <!-- <div id="proj-01">
                 <h3>Summer Escapes</h3>
                 <hr />
 
@@ -229,9 +236,9 @@
                   <p>SQL</p>
                   <p>PHP</p>
                 </span>
-              </div>
+              </div> -->
 
-              <div id="proj-02" class="hide">
+              <!-- <div id="proj-02">
                 <h3>HindiFlix -02</h3>
                 <hr />
                 <strong>Dynamic webpage and ticket system</strong>
@@ -251,9 +258,9 @@
                   <p>PHP</p>
                   <p>MySQL</p>
                 </span>
-              </div>
+              </div> -->
 
-              <div id="proj-03" class="hide">
+              <!-- <div id="proj-03">
                 <h3>proj 003 -03</h3>
                 <hr />
                 <strong>Dynamic webpage and ticket system</strong>
@@ -272,25 +279,87 @@
                   <p>PHP</p>
                   <p>MySQL</p>
                 </span>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="sticky-scroll-img">
             <img
               id="proj-img-01"
+              data-project="1"
               class="project-img"
               src="images/SummerEscConcepts_1.jpg"
             />
+            <div id="proj-01" class="project-summary">
+              <h3>Summer Escapes</h3>
+              <hr />
+
+              <strong>UI & Database Design</strong>
+              <p>
+                Summer escapes is a small startup who&apos;s goal is to inform
+                visitors about holiday destinations using a library of user
+                generated content, their long term goal is to promote travel
+                bookings via their online platform.
+              </p>
+
+              <span class="project-stack">
+                <p>Adobe XD</p>
+                <p>SQL</p>
+                <p>PHP</p>
+              </span>
+            </div>
             <img
               id="proj-img-02"
+              data-project="2"
               class="project-img"
               src="images/SummerEscConcepts_1.jpg"
             />
+            <div id="proj-02" class="project-summary">
+              <h3>HindiFlix -02</h3>
+              <hr />
+              <strong>Dynamic webpage and ticket system</strong>
+              <p>
+                This platform was built for a small independent cinema
+                specialising in Bollywood movies. Through their dynamic booking
+                platform users choose from a range of &apos; currently
+                screening&apos; movies, and are presented with appropriate dates
+                and session times for that selection.
+              </p>
+
+              <span class="project-stack">
+                <p>HTML 5</p>
+                <p>CSS3</p>
+                <p>Javascript + AJAX</p>
+                <p>Bootstrap</p>
+                <p>PHP</p>
+                <p>MySQL</p>
+              </span>
+            </div>
             <img
               id="proj-img-03"
+              data-project="3"
               class="project-img"
               src="images/SummerEscConcepts_1.jpg"
             />
+            <div id="proj-03" class="project-summary">
+              <h3>proj 003 -03</h3>
+              <hr />
+              <strong>Dynamic webpage and ticket system</strong>
+              <p>
+                sdfgsdfg;ldfjg; ls;ldfkjg kl;fdg j;dflj dsfkl;l Through their
+                dynamic booking platform users choose from a range of &apos;
+                currently screening&apos; movies, and are presented with
+                appropriate dates and session times for that selection.
+              </p>
+
+              <span class="project-stack">
+                <p>HTML 5</p>
+                <p>CSS3</p>
+                <p>Javascript + AJAX</p>
+                <p>Bootstrap</p>
+                <p>PHP</p>
+                <p>MySQL</p>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -366,14 +435,14 @@
 
 <script>
   ///////////////////////////////////////////////////
-  // #toolkit scrollbar
+  // #toolkit scroll buttons
+  const target = document.getElementById("tech-logos");
+
   function leftScroll() {
-    const left = document.querySelector(".scroll-images");
-    left.scrollBy(200, 0);
+    target.scrollBy(-100, 0);
   }
   function rightScroll() {
-    const right = document.querySelector(".scroll-images");
-    right.scrollBy(-200, 0);
+    target.scrollBy(100, 0);
   }
   /////////////////////////////////////////////////////////////////
   // Pointers
@@ -383,7 +452,7 @@
   // Return scroll direction
 
   let oldYoffset = 0; //init value
-  let scrollDown = true; //true = down //false = up
+  let scrollDown = true; //true = 🔻 //false = 🔺
 
   window.addEventListener("scroll", function (e) {
     let newYoffset = window.pageYOffset; // new value ea scroll event
@@ -430,7 +499,7 @@
   const servicesListHeader3 = document.getElementById("servicesHeader3");
   const servicesListHeader4 = document.getElementById("servicesHeader4");
 
-  let callback = (entries, observer) => {
+  let animateServicesList = (entries, observer) => {
     entries.forEach((entry) => {
       // console.log(entry);
       // console.log(entry.boundingClientRect.top, "<- top");
@@ -451,7 +520,10 @@
     threshold: [0.99], //0 = 1pixel visibility
   };
 
-  const servicesObserver = new IntersectionObserver(callback, servicesOptions);
+  const servicesObserver = new IntersectionObserver(
+    animateServicesList,
+    servicesOptions
+  );
 
   servicesObserver.observe(servicesListHeader2);
   servicesObserver.observe(servicesListHeader3);
@@ -462,6 +534,75 @@
 
   ////////////////////////////////////////////////////////
   ////////// #'projects' section
+
+  //responsive
+  // hard code mobile first (column, img over blurb) ✅
+  // check device size ✅
+  // add a hide class to mobile layout blurbs ✅
+  // display the 1st project blurb ✅
+  // observe images and programatically switch for correct blurb when scrolled I/O of view
+  //  >using innerhtml (hopeflly this triggers animations)
+
+  const projectCopyMobPos = document.querySelectorAll(".project-summary");
+  let projectCopyDeskPos = document.getElementById("dynamic-content");
+
+  // hide mobile first layout (col  (img / desription))
+  // reposition (row (descriptions, img))
+  if (window.innerWidth > 600) {
+    projectCopyDeskPos.innerHTML = projectCopyMobPos[0].innerHTML;
+
+    projectCopyMobPos.forEach((projectIntro) =>
+      projectIntro.classList.add("hide")
+    );
+  }
+
+  ////////////////
+  // Intersection Observer API - Desktop Layout
+
+  const projImg1 = document.getElementById("proj-img-01");
+  const projImg2 = document.getElementById("proj-img-02");
+  const projImg3 = document.getElementById("proj-img-03");
+  // console.log(projImg1, projImg2, projImg3);
+
+  let loadProjectCopy = (entries, observer) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+      if (entry.isIntersecting) {
+        //SWITCH???
+        // console.log("trigger forward or back?");
+        // projectCopyDeskPos.innerHTML = projectCopyMobPos[1].innerHTML;
+        if (entry.target.dataset.project === "1") {
+          projectCopyDeskPos.innerHTML = projectCopyMobPos[0].innerHTML;
+        }
+        if (entry.target.dataset.project === "2") {
+          projectCopyDeskPos.innerHTML = projectCopyMobPos[1].innerHTML;
+        }
+        if (entry.target.dataset.project === "3") {
+          projectCopyDeskPos.innerHTML = projectCopyMobPos[2].innerHTML;
+        }
+      }
+    });
+  };
+
+  let projectsOptions = {
+    root: null,
+    rootMargin: "-50%",
+    threshold: [0],
+  };
+
+  const projectsObserver = new IntersectionObserver(
+    loadProjectCopy,
+    projectsOptions
+  );
+
+  // projectsObserver.observe(projImg1);
+  projectsObserver.observe(projImg1);
+  projectsObserver.observe(projImg2);
+  projectsObserver.observe(projImg3);
+
+  const myFunction = function () {
+    console.log("function triggered");
+  };
 
   // Pointers
   // const projImg1 = document.getElementById("proj-img-01");
