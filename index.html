@@ -504,8 +504,8 @@
   if (window.innerWidth > 600) {
     projectCopyDeskPos.innerHTML = projectCopyMobPos[0].innerHTML;
 
-    projectCopyMobPos.forEach((projectIntro) =>
-      projectIntro.classList.add("hide")
+    projectCopyMobPos.forEach((projectCopy) =>
+      projectCopy.classList.add("hide")
     );
   }
 
@@ -521,17 +521,26 @@
     entries.forEach((entry) => {
       console.log(entry);
       if (entry.isIntersecting) {
-        //SWITCH (already in a loop here) ???
+        //SWITCH???
 
-        // guard clause (prevent repeat load when content is the same)
-
-        if (entry.target.dataset.project === "0") {
+        if (
+          entry.target.dataset.project === "0" &&
+          projectCopyDeskPos.innerHTML != projectCopyMobPos[0].innerHTML
+        ) {
           projectCopyDeskPos.innerHTML = projectCopyMobPos[0].innerHTML;
         }
-        if (entry.target.dataset.project === "1") {
+
+        if (
+          entry.target.dataset.project === "1" &&
+          projectCopyDeskPos.innerHTML != projectCopyMobPos[1].innerHTML
+        ) {
           projectCopyDeskPos.innerHTML = projectCopyMobPos[1].innerHTML;
         }
-        if (entry.target.dataset.project === "2") {
+
+        if (
+          entry.target.dataset.project === "2" &&
+          projectCopyDeskPos.innerHTML != projectCopyMobPos[2].innerHTML
+        ) {
           projectCopyDeskPos.innerHTML = projectCopyMobPos[2].innerHTML;
         }
       }
