@@ -156,7 +156,6 @@ ul {
   top: 50%;
   transform: translateY(-50%);
 }
-
 .scrollButton {
   width: 2.5rem;
   height: 2.5rem;
@@ -166,6 +165,54 @@ ul {
   border: none;
   font-size: 1.5rem;
   border: white 1px solid;
+}
+/*** tooltips ***/
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  min-width: max-content;
+  color: #454960;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+}
+.hover-text:hover .tooltip-text {
+  visibility: visible;
+}
+/* #top {
+  top: -40px;
+  left: -50%;
+}
+#bottom {
+  top: 25px;
+  left: -50%;
+}
+#left {
+  top: -8px;
+  right: 120%;
+} */
+.tooltip-right {
+  top: 25%;
+  left: 95%;
+}
+/* arrow */
+.tooltip-right::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+.hover-text {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
 }
 /*** /TOOLKIT ***/
 
