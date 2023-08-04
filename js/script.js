@@ -102,7 +102,7 @@ servicesObserver.observe(servicesListHeader4);
 // add a hide class to mobile layout blurbs ✅
 // display the 1st project blurb ✅
 // observe images and programatically switch for correct blurb when scrolled I/O of view ✅
-//  >using innerhtml (hopeflly this triggers animations)
+//  >using innerhtml (hopeflly this triggers animations) ✅
 
 const projectCopyMobPos = document.querySelectorAll(".project-summary");
 let projectCopyDeskPos = document.getElementById("dynamic-content");
@@ -130,6 +130,7 @@ let loadProjectCopy = (entries, observer) => {
       //SWITCH???
 
       if (
+        //conditional oparator???
         entry.target.dataset.project === "0" &&
         projectCopyDeskPos.innerHTML != projectCopyMobPos[0].innerHTML
       ) {
@@ -164,11 +165,6 @@ const projectsObserver = new IntersectionObserver(
   projectsOptions
 );
 
-// projectsObserver.observe(projImg1);
 projectsObserver.observe(projImg1);
 projectsObserver.observe(projImg2);
 projectsObserver.observe(projImg3);
-
-const myFunction = function () {
-  console.log("function triggered");
-};

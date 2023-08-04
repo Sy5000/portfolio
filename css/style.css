@@ -15,7 +15,7 @@ body {
   color: #ffffff;
 }
 div {
-  border: 2px solid yellow;
+  /* border: 0.5px dotted yellow; */
 }
 .content-wrap {
   width: 1272px; /* 12 col grid */
@@ -88,25 +88,6 @@ ul {
   height: 10px;
   background: var(--gradient);
 }
-/* #tech-logos {
-  display: inherit;
-  gap: 2rem;
-  width: 100%;
-  align-self: center;
-  overflow-x: scroll;
-
-  > div > img {
-    width: 74px;
-    height: 74px;
-  }
-}
-#tech-logos::-webkit-scrollbar {
-  /* display: none; 
-} 
-/*
-#tech-text {
-  width: 286px;
-} */
 /***** arrows *****/
 #tech-logos-wrap {
   max-width: 85%;
@@ -181,23 +162,11 @@ ul {
 .hover-text:hover .tooltip-text {
   visibility: visible;
 }
-/* #top {
-  top: -40px;
-  left: -50%;
-}
-#bottom {
-  top: 25px;
-  left: -50%;
-}
-#left {
-  top: -8px;
-  right: 120%;
-} */
 .tooltip-right {
   top: 25%;
   left: 95%;
 }
-/* arrow */
+/* tooltip arrow */
 .tooltip-right::after {
   content: " ";
   position: absolute;
@@ -386,6 +355,47 @@ ul {
 }
 /*** /PROJECTS ***/
 
+/*** PROJECT PAGE *****/
+.project-max-width-wrap {
+  /* 10 cols / 11 gutters */
+  width: 1092px;
+  margin-left: 90px;
+  margin-right: 90px;
+  /* padding: 0 16px 0 16px; */
+}
+.hero-img {
+  margin: auto;
+  width: 100%;
+  /* margin: 0 5% 0 5%; */
+  border-radius: 10px;
+}
+.project-rundown {
+  width: 392px;
+  margin-left: 2rem;
+}
+.project-rundown > div {
+  padding: 2.5rem 0 0 0;
+}
+.project-rundown > div > ul {
+  padding: 1rem 74px 0 106px;
+  > li {
+    padding: 0.5rem 0 0.5rem 0;
+    border-bottom: #ffffff solid 1px;
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+}
+.project-full-summary {
+  width: 604px;
+}
+.project-full-summary > p {
+  margin: 1.5rem 0 1.5rem 0;
+}
+.project-full-summary > ul > li {
+  list-style-type: disc;
+  margin: 0.5rem 1rem;
+}
 /*** EXPERIMENTS ***/
 #experiments > p {
   width: 50%;
@@ -458,6 +468,9 @@ footer {
 }
 /*** /FOOTER ***/
 
+/********************/
+/********************/
+
 @media screen and (max-width: 600px) {
   /***** about *****/
   .content-wrap {
@@ -510,6 +523,18 @@ footer {
   .project-stack {
     width: 100%;
     flex-wrap: wrap;
+  }
+  /***** projects-pages *****/
+  .project-max-width-wrap {
+    width: 100%;
+    margin: auto;
+  }
+  .project-rundown {
+    width: 100%;
+    margin: auto;
+  }
+  .project-full-summary {
+    width: 100%;
   }
   /***** experiments *****/
   #experiments {
