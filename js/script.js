@@ -55,9 +55,50 @@ const iterateBack = function (scrollDown) {
   }
 };
 
-////////////////////////////////////////////////////
+//////////////////////////////////////////////////// PRE REFACTOR
 // #services intersectionObserver API
 // observe headers and rotate to correct title
+
+// const servicesListHeader2 = document.getElementById("servicesHeader2");
+// const servicesListHeader3 = document.getElementById("servicesHeader3");
+// const servicesListHeader4 = document.getElementById("servicesHeader4");
+
+// let animateServicesList = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     // console.log(entry);
+//     // console.log(entry.boundingClientRect.top, "<- top");
+//     if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
+//       // console.log("trigger");
+//       iterateBack(scrollDown);
+//       iterateForward(scrollDown);
+//     }
+//   });
+// };
+
+// let servicesOptions = {
+//   root: null, // defaults to browser viewport
+//   rootMargin: "-25px", // 1/2way point of trigger area //+25px scroll buffer for ea scroll dir 🔺+🔻
+//   threshold: [0.99], //0 = 1pixel visibility
+// };
+
+// const servicesObserver = new IntersectionObserver(
+//   animateServicesList,
+//   servicesOptions
+// );
+
+// servicesObserver.observe(servicesListHeader2);
+// servicesObserver.observe(servicesListHeader3);
+// servicesObserver.observe(servicesListHeader4);
+
+//////////////////////////////////////////////////// REFACTOR
+// #services intersectionObserver API
+// observe headers and rotate to correct title
+
+// grab list as array
+// ID service observable scrolling sections (as below or another array / 1 var)
+// compare content when intersecting
+// change html li active class if required (logic for scroll direction || increasing or decreasing change detected on compare)
+// animate
 
 const servicesListHeader2 = document.getElementById("servicesHeader2");
 const servicesListHeader3 = document.getElementById("servicesHeader3");
@@ -65,20 +106,20 @@ const servicesListHeader4 = document.getElementById("servicesHeader4");
 
 let animateServicesList = (entries, observer) => {
   entries.forEach((entry) => {
-    // console.log(entry);
+    console.log(entry);
     // console.log(entry.boundingClientRect.top, "<- top");
     if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
       // console.log("trigger");
-      iterateBack(scrollDown);
-      iterateForward(scrollDown);
+      // iterateBack(scrollDown);
+      // iterateForward(scrollDown);
     }
   });
 };
 
 let servicesOptions = {
   root: null, // defaults to browser viewport
-  rootMargin: "-25px", // 1/2way point of trigger area //+25px scroll buffer for ea scroll dir 🔺+🔻
-  threshold: [0.99], //0 = 1pixel visibility
+  rootMargin: "50%",
+  threshold: [0], // 0 = 1pixel visibility
 };
 
 const servicesObserver = new IntersectionObserver(
@@ -104,7 +145,9 @@ servicesObserver.observe(servicesListHeader4);
 // observe images and programatically switch for correct blurb when scrolled I/O of view ✅
 //  >using innerhtml (hopeflly this triggers animations) ✅
 
+// mobile first ALL blurbs
 const projectCopyMobPos = document.querySelectorAll(".project-summary");
+// desktop placeholder
 let projectCopyDeskPos = document.getElementById("dynamic-content");
 
 // hide mobile first layout (col  (img / desription))
@@ -130,7 +173,6 @@ let loadProjectCopy = (entries, observer) => {
       //SWITCH???
 
       if (
-        //conditional oparator???
         entry.target.dataset.project === "0" &&
         projectCopyDeskPos.innerHTML != projectCopyMobPos[0].innerHTML
       ) {

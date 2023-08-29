@@ -31,7 +31,11 @@
         <sub>SOUTH-EAST QUEENSLAND</sub>
       </div>
       <div class="h-col-2">
-        <img src="images/avatar1-b+w.gif" id="profile-pic" />
+        <img
+          src="images/avatar1-b+w.gif"
+          id="profile-pic"
+          alt="developer head shot"
+        />
         <div class="gradient-fill"></div>
         <!-- <hr /> -->
         <br />
@@ -70,91 +74,109 @@
 
           <div id="tech-logos">
             <div class="hover-text">
-              <img src="images/html5.png" />
+              <img src="images/html5.png" alt="html 5 markup language logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>HTML 5</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/css3.png" />
+              <img src="images/css3.png" alt="css 3 stylesheet language logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>CSS 3</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/js.png" />
+              <img
+                src="images/js.png"
+                alt="javascript programming language logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>Javascript (ES6)</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/php.png" />
+              <img src="images/php.png" alt="php programming language logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>PHP 8 - Server-side Scripting</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/mysql.png" />
+              <img src="images/mysql.png" alt="sql programming language logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>MySQL - Relational Database Management</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/node.png" />
+              <img
+                src="images/node.png"
+                alt="node programming environment logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>Node JS - Server-side JS</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/swagger.png" />
+              <img
+                src="images/swagger.png"
+                alt="swagger documentation tools logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>Swagger - API platform</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/mongodb.png" />
+              <img
+                src="images/mongodb.png"
+                alt="mongodb database system logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>MongoDB - NoSQL Database Management</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/git.png" />
+              <img
+                src="images/git.png"
+                alt="git version control system software logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>Git / GitHub - Version Control Management</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/aws.png" />
+              <img src="images/aws.png" alt="amazon web services logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>Amazon Web Servies - Cloud computing (IaC)</strong>
               </span>
             </div>
 
-            <div class="hover-text">
+            <!-- <div class="hover-text">
               <img src="images/docker.png" />
               <span class="tooltip-text tooltip-right">
                 <strong>Docker - Containerization</strong>
               </span>
-            </div>
+            </div> -->
 
             <div class="hover-text">
-              <img src="images/bootstrap.png" />
+              <img src="images/bootstrap.png" alt="bootstrap framework logo" />
               <span class="tooltip-text tooltip-right">
                 <strong>Bootstrap - Front-end Framework</strong>
               </span>
             </div>
 
             <div class="hover-text">
-              <img src="images/express.png" />
+              <img
+                src="images/express.png"
+                alt="javascript express framework logo"
+              />
               <span class="tooltip-text tooltip-right">
                 <strong>Express - Node.js framework</strong>
               </span>
@@ -190,7 +212,7 @@
         <div class="sticky-scroll">
           <div id="concept">
             <hr />
-            <h3>Purpose</h3>
+            <h3>Research & Direction</h3>
             <hr />
             <ul>
               <li>
@@ -223,7 +245,7 @@
               </ul>
 
               <li>Graphic Design; Art direction & Identity</li>
-              <li>Wire framing & Interactive Prortotypes</li>
+              <li>Wire framing & Interactive Prototypes</li>
             </ul>
             <hr />
           </div>
@@ -274,7 +296,7 @@
             <br />
             <ul>
               <li>Detailed user documentation</li>
-              <li>WCAG Accessibility rated</li>
+              <li>WCAG Accessibility rated pages</li>
               <li>SLA's; performance monitoring & maintenence</li>
             </ul>
 
@@ -311,12 +333,16 @@
             </div>
           </div>
           <div class="sticky-scroll-img">
-            <img
-              id="proj-img-01"
-              data-project="0"
-              class="project-img"
-              src="images/SummerEscConcepts_1.jpg"
-            />
+            <a href="project-one.html">
+              <img
+                id="proj-img-01"
+                data-project="0"
+                class="project-img"
+                src="images/SummerEscConcepts_1.jpg"
+                alt="UI/UX design concepts demonstrating intuitive functions for a travel review app"
+              />
+            </a>
+
             <div id="proj-01" class="project-summary">
               <div class="slide-effect-wrap">
                 <h3 class="slideUp">Summer Escapes</h3>
@@ -326,80 +352,124 @@
               <!-- <div class="slide-effect-wrap"><hr class="slideRight" /></div> -->
 
               <div class="fadeIn">
-                <strong>UI & Database Design</strong>
+                <!-- <strong>UI & Database Design</strong> -->
                 <p>
-                  Summer escapes is a small startup who&apos;s goal is to inform
-                  visitors about holiday destinations using a library of user
-                  generated content, their long term goal is to promote travel
-                  bookings via their online platform.
+                  Summer Escapes is a travel website for a small startup
+                  who&apos;s goal is to inform visitors about holiday
+                  destinations using a library of user generated content
+                  (reviews, images, ratings etc).
+                  <!-- their long term goal is to promote travel
+                  bookings via their online platform.  -->
+                </p>
+                <br />
+                <p>
+                  A custom
+                  <span class="italic">relational database system</span> was
+                  structured and developed alongside
+                  <span class="italic">UI / UX mockups</span>
+                  that demonstrate how the solution meets each of the business
+                  requirements.
                 </p>
 
+                <!-- <a href="project-one.html">more</a> -->
+
                 <span class="project-stack">
-                  <p>Adobe XD</p>
-                  <p>SQL</p>
-                  <p>PHP</p>
+                  <p>Adobe XD,</p>
+                  <p>SQL,</p>
+                  <p>PHP.</p>
                 </span>
               </div>
             </div>
-            <img
-              id="proj-img-02"
-              data-project="1"
-              class="project-img"
-              src="images/SummerEscConcepts_1.jpg"
-            />
+
+            <a href="project-two.html">
+              <img
+                id="proj-img-02"
+                data-project="1"
+                class="project-img"
+                src="images/HindiFlixConcepts_Hero1.jpg"
+                alt="Full stack web app mockup: homepage for a cinema with a library of 'currently showing' titles"
+              />
+            </a>
+
             <div id="proj-02" class="project-summary">
               <div class="slide-effect-wrap">
-                <h3 class="slideUp">HindiFlix -02</h3>
+                <h3 class="slideUp">Cinema Ticket App</h3>
                 <hr class="slideRight" />
               </div>
               <div class="fadeIn">
-                <strong>Dynamic webpage and ticket system</strong>
-                <p>
+                <!-- <strong>Dynamic webpage and ticket system</strong> -->
+
+                <!-- </p>
                   This platform was built for a small independent cinema
                   specialising in Bollywood movies. Through their dynamic
-                  booking platform users choose from a range of &apos; currently
+                  booking platform users choose from a range of &apos;currently
                   screening&apos; movies, and are presented with appropriate
                   dates and session times for that selection.
+                </p> -->
+                <p>
+                  This platform was built for an independent cinema specialising
+                  in Bollywood block-busters. Users can navigate a real time
+                  event schedule and select available movies, dates and showtime
+                  before making a booking.
+                </p>
+                <br />
+                <p>
+                  The <span class="italic">dynamic webpage</span> behaviour was
+                  developed using event driven background AJAX requests.
+                  Fetching the most up-to-date data from the DB & inserting it
+                  into the DOM with no page reloading.
                 </p>
 
                 <span class="project-stack">
-                  <p>HTML 5</p>
-                  <p>CSS3</p>
-                  <p>Javascript + AJAX</p>
-                  <p>Bootstrap</p>
-                  <p>PHP</p>
-                  <p>MySQL</p>
+                  <p>HTML 5,</p>
+                  <p>CSS3,</p>
+                  <p>Javascript + AJAX,</p>
+                  <p>Bootstrap,</p>
+                  <p>PHP,</p>
+                  <p>MySQL.</p>
                 </span>
               </div>
             </div>
-            <img
-              id="proj-img-03"
-              data-project="2"
-              class="project-img"
-              src="images/CoLabConcepts_Hero1.png"
-            />
+            <a href="project-three.html">
+              <img
+                id="proj-img-03"
+                data-project="2"
+                class="project-img"
+                src="images/CoLabConcepts_Hero1.png"
+                alt="Full stack web app mockup: events feed page for community workshops"
+              />
+            </a>
             <div id="proj-03" class="project-summary">
               <div class="slide-effect-wrap">
-                <h3 class="slideUp">proj 003 -03</h3>
+                <h3 class="slideUp">Workshop Event Feed</h3>
                 <hr class="slideRight" />
               </div>
 
               <div class="fadeIn">
-                <strong>Dynamic webpage and ticket system</strong>
+                <!-- <strong>Dynamic webpage and ticket system</strong> -->
                 <p>
-                  sdfgsdfg;ldfjg; ls;ldfkjg kl;fdg j;dflj dsfkl;l Through their
-                  dynamic booking platform users choose from a range of &apos;
-                  currently screening&apos; movies, and are presented with
-                  appropriate dates and session times for that selection.
+                  Co_Lab is a small collective who hold regular workshops and
+                  events in a multi-venue community space. Their website acts as
+                  a notice-board where hosts can provide details and publicise
+                  upcoming events.
+                </p>
+                <br />
+                <p>
+                  This custom made
+                  <span class="italic">full stack application</span> consists of
+                  a dynamic feed, which can be filtered by venue and a simple
+                  but
+                  <span class="italic">secure &apos;back-end&apos; C.M.S</span>,
+                  where staff can draft/add/edit & remove posts.
                 </p>
 
                 <span class="project-stack">
-                  <p>HTML 5</p>
-                  <p>CSS3</p>
-                  <p>Javascript + AJAX</p>
-                  <p>Bootstrap</p>
-                  <p>PHP</p>
-                  <p>MySQL</p>
+                  <p>HTML 5,</p>
+                  <p>CSS3,</p>
+                  <p>Javascript + AJAX,</p>
+                  <p>Bootstrap,</p>
+                  <p>PHP,</p>
+                  <p>MySQL.</p>
                 </span>
               </div>
             </div>
@@ -408,7 +478,9 @@
       </div>
     </section>
 
-    <section id="experiments" class="content-wrap">
+    <!-- No CONTENT YET
+         upload and format old projects
+      <section id="experiments" class="content-wrap">
       <hr />
       <h2>Just for Fun.</h2>
 
@@ -432,7 +504,7 @@
         <div class="card-3"></div>
       </div>
       <hr />
-    </section>
+    </section> -->
 
     <footer>
       <div class="content-wrap">
@@ -481,6 +553,12 @@
 </html>
 
 <script>
+  //////////////////////////
+  // SERVICES -> link click > scroll action
+
+  //////////////////////////
+  //////////////////////////
+
   // Pointers
   // const projImg1 = document.getElementById("proj-img-01");
   // const projImg2 = document.getElementById("proj-img-02");
