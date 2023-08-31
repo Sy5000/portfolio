@@ -202,15 +202,19 @@
       <div class="sticky-wrap">
         <div class="sticky-div">
           <ul class="services-list display">
-            <li class="active">Concept</li>
-            <li>UI/UX</li>
-            <li>Development</li>
-            <li>Q.A</li>
+            <li class="active">
+              <a class="services__link" href="#services--1">Concept</a>
+            </li>
+            <li><a class="services__link" href="#services--2">UI/UX</a></li>
+            <li>
+              <a class="services__link" href="#services--3">Development</a>
+            </li>
+            <li><a class="services__link" href="#services--4">Q.A</a></li>
           </ul>
         </div>
 
         <div class="sticky-scroll">
-          <div id="concept">
+          <div id="services--1">
             <hr />
             <h3>Research & Direction</h3>
             <hr />
@@ -230,9 +234,10 @@
 
             <hr />
           </div>
-          <div>
+
+          <div id="services--2">
             <hr />
-            <h3 id="servicesHeader2">Design Cycle</h3>
+            <h3>Design Cycle</h3>
             <hr />
 
             <ul>
@@ -249,9 +254,10 @@
             </ul>
             <hr />
           </div>
-          <div>
+
+          <div id="services--3">
             <hr />
-            <h3 id="servicesHeader3">Production</h3>
+            <h3>Production</h3>
             <hr />
             <strong>Front End</strong>
             <br />
@@ -289,9 +295,10 @@
 
             <br />
           </div>
-          <div>
+
+          <div id="services--4">
             <hr />
-            <h3 id="servicesHeader4">Best Practices</h3>
+            <h3>Best Practices</h3>
             <hr />
             <br />
             <ul>
@@ -553,6 +560,21 @@
 </html>
 
 <script>
+  ///////////////////////////
+  // services li link scroll action
+
+  document
+    .querySelector(".services-list")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Matching strategy
+      if (e.target.classList.contains("services__link")) {
+        const id = e.target.getAttribute("href");
+        document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
   //////////////////////////
   // SERVICES -> link click > scroll action
 

@@ -91,6 +91,9 @@ const iterateBack = function (scrollDown) {
 // servicesObserver.observe(servicesListHeader4);
 
 //////////////////////////////////////////////////// REFACTOR
+//////////////////////////////////////////////////// REFACTOR
+//////////////////////////////////////////////////// REFACTOR
+
 // #services intersectionObserver API
 // observe headers and rotate to correct title
 
@@ -100,36 +103,36 @@ const iterateBack = function (scrollDown) {
 // change html li active class if required (logic for scroll direction || increasing or decreasing change detected on compare)
 // animate
 
-const servicesListHeader2 = document.getElementById("servicesHeader2");
-const servicesListHeader3 = document.getElementById("servicesHeader3");
-const servicesListHeader4 = document.getElementById("servicesHeader4");
+// const servicesListHeader2 = document.getElementById("servicesHeader2");
+// const servicesListHeader3 = document.getElementById("servicesHeader3");
+// const servicesListHeader4 = document.getElementById("servicesHeader4");
 
-let animateServicesList = (entries, observer) => {
-  entries.forEach((entry) => {
-    console.log(entry);
-    // console.log(entry.boundingClientRect.top, "<- top");
-    if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
-      // console.log("trigger");
-      // iterateBack(scrollDown);
-      // iterateForward(scrollDown);
-    }
-  });
-};
+// let animateServicesList = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     console.log(entry);
+//     // console.log(entry.boundingClientRect.top, "<- top");
+//     if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
+//       // console.log("trigger");
+//       // iterateBack(scrollDown);
+//       // iterateForward(scrollDown);
+//     }
+//   });
+// };
 
-let servicesOptions = {
-  root: null, // defaults to browser viewport
-  rootMargin: "50%",
-  threshold: [0], // 0 = 1pixel visibility
-};
+// let servicesOptions = {
+//   root: null, // defaults to browser viewport
+//   rootMargin: "50%",
+//   threshold: [0], // 0 = 1pixel visibility
+// };
 
-const servicesObserver = new IntersectionObserver(
-  animateServicesList,
-  servicesOptions
-);
+// const servicesObserver = new IntersectionObserver(
+//   animateServicesList,
+//   servicesOptions
+// );
 
-servicesObserver.observe(servicesListHeader2);
-servicesObserver.observe(servicesListHeader3);
-servicesObserver.observe(servicesListHeader4);
+// servicesObserver.observe(servicesListHeader2);
+// servicesObserver.observe(servicesListHeader3);
+// servicesObserver.observe(servicesListHeader4);
 
 ////////// END
 ////////////////////////////////////////////////////////
