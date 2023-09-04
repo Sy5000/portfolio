@@ -232,24 +232,42 @@ ul {
 .services-list {
   padding: 250px 180px 250px 106px;
 }
-.sticky-div > ul {
-  /* background-color: #cb1c68; */
-  font-size: 1.5rem;
-
-  > li {
-    border-bottom: solid white 2px;
-    padding: 0.25rem;
-  }
-
+.sticky-div > ul > li {
+  font-size: 22pt;
+  border-bottom: solid white 2px;
+  padding: 0.25rem;
+  width: auto;
+  height: auto;
   > li:last-child {
     border-bottom: none;
+  }
+  > a {
+    color: RGBA(234, 240, 246, 0.5);
+  }
+}
+.active {
+  animation: example 0.3s forwards;
+}
+/* font size to animate links // transform to animate list items (inc underline) */
+@keyframes example {
+  0% {
+    margin-left: 0;
+    color: RGBA(255, 255, 255, 0.5);
+    /* font-size: 32pt; */
+    /* font-size: 18pt; */
+  }
+  100% {
+    margin-left: 5px;
+    color: rgb(255, 255, 255, 1);
+    /* font-size: 32pt; */
+    /* transform: scale(1); */
   }
 }
 .sticky-scroll {
   width: 604px;
 
   > div:last-child {
-    height: 75vh;
+    height: 100vh;
   }
 }
 .sticky-scroll > div > ul {
@@ -270,12 +288,7 @@ ul {
     }
   }
 }
-.active {
-  font-size: 2rem;
-  font-weight: 900;
-  padding: 0.5rem;
-  /* color: #00ffff; */
-}
+
 /*** /SERVICES ***/
 
 /*** PROJECTS ***/
@@ -312,9 +325,9 @@ ul {
   animation: slideRight 0.5s ease-in forwards;
 }
 .slideDown {
-  top: -40px;
+  top: -50px;
   /* left: 5px; */
-  animation: slideDown ease 0.8s forwards 1.4s;
+  animation: slideDown ease 0.9s forwards;
 }
 .fadeIn {
   padding: 1rem 0;
@@ -339,7 +352,7 @@ ul {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(40px);
+    transform: translateY(50px);
     opacity: 1;
   }
 }

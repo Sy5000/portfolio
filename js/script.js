@@ -1,152 +1,96 @@
-///////////////////////////////////////////////////
-// #toolkit scroll buttons
+//////////////////////////////////////////////////
+// #toolkit scroll buttons //
+
 const target = document.getElementById("tech-logos");
 
 function leftScroll() {
-  target.scrollBy(-100, 0);
+  target.scrollBy(-250, 0);
 }
 function rightScroll() {
-  target.scrollBy(100, 0);
+  target.scrollBy(250, 0);
 }
-/////////////////////////////////////////////////////////////////
-// Pointers
-const listItems = document.querySelectorAll(".services-list>li");
+//////////////////////////////////////////////////
+// services links > auto scroll + active class toggle
 
-/////////////////////////////////////////////////
-// Return scroll direction
+// pointers //
+const serviceList = document.querySelectorAll(".services__link");
+const services1 = document.getElementById("services--1");
+const services2 = document.getElementById("services--2");
+const services3 = document.getElementById("services--3");
+const services4 = document.getElementById("services--4");
 
-let oldYoffset = 0; //init value
-let scrollDown = true; //true = 🔻 //false = 🔺
-
-window.addEventListener("scroll", function (e) {
-  let newYoffset = window.pageYOffset; // new value ea scroll event
-
-  // compare values to determine scroll direction
-  if (oldYoffset - newYoffset < 0) {
-    scrollDown = true;
-  } else if (oldYoffset - newYoffset > 0) {
-    scrollDown = false;
-  }
-  oldYoffset = newYoffset; // update the value
-});
-
-////////////////////////////////////////////////////
-// #services toggle titles
-
-const iterateForward = function (scrollDown) {
-  if (scrollDown === true) {
-    for (let i = 0; i < listItems.length - 1; i++) {
-      if (listItems[i].classList.contains("active")) {
-        listItems[i].classList.remove("active");
-        listItems[i + 1].classList.add("active");
-        break;
-      }
-    }
-  }
-};
-const iterateBack = function (scrollDown) {
-  if (scrollDown !== true) {
-    for (let i = 1; i < listItems.length; i++) {
-      if (listItems[i].classList.contains("active")) {
-        listItems[i].classList.remove("active");
-        listItems[i - 1].classList.add("active");
-      }
-    }
-  }
+const toggleServicesOff = function (serviceList) {
+  serviceList.forEach((el) => {
+    el.classList.remove("active");
+  });
 };
 
-//////////////////////////////////////////////////// PRE REFACTOR
-// #services intersectionObserver API
-// observe headers and rotate to correct title
+// link event listener //
+document
+  .querySelector(".services-list")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
 
-// const servicesListHeader2 = document.getElementById("servicesHeader2");
-// const servicesListHeader3 = document.getElementById("servicesHeader3");
-// const servicesListHeader4 = document.getElementById("servicesHeader4");
+    // Matching strategy
+    if (e.target.classList.contains("services__link")) {
+      const id = e.target.getAttribute("href");
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
 
-// let animateServicesList = (entries, observer) => {
-//   entries.forEach((entry) => {
-//     // console.log(entry);
-//     // console.log(entry.boundingClientRect.top, "<- top");
-//     if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
-//       // console.log("trigger");
-//       iterateBack(scrollDown);
-//       iterateForward(scrollDown);
-//     }
-//   });
-// };
+      // toggle 'active' class on li as sections scroll > Intersection Observer API
+    }
+  });
 
-// let servicesOptions = {
-//   root: null, // defaults to browser viewport
-//   rootMargin: "-25px", // 1/2way point of trigger area //+25px scroll buffer for ea scroll dir 🔺+🔻
-//   threshold: [0.99], //0 = 1pixel visibility
-// };
+//////////////////////////////////////////////////
+// IntersectionObserver API
 
-// const servicesObserver = new IntersectionObserver(
-//   animateServicesList,
-//   servicesOptions
-// );
+let animateServicesList = (entries, observer) => {
+  entries.forEach((entry) => {
+    // console.log(entry);
 
-// servicesObserver.observe(servicesListHeader2);
-// servicesObserver.observe(servicesListHeader3);
-// servicesObserver.observe(servicesListHeader4);
+    if (entry.isIntersecting && entry.target.id === "services--1") {
+      toggleServicesOff(serviceList);
+      serviceList[0].classList.add("active");
+    }
+    if (entry.isIntersecting && entry.target.id === "services--2") {
+      toggleServicesOff(serviceList);
+      serviceList[1].classList.add("active");
+    }
+    if (entry.isIntersecting && entry.target.id === "services--3") {
+      toggleServicesOff(serviceList);
+      serviceList[2].classList.add("active");
+    }
+    if (entry.isIntersecting && entry.target.id === "services--4") {
+      toggleServicesOff(serviceList);
+    }
+  });
+};
 
-//////////////////////////////////////////////////// REFACTOR
-//////////////////////////////////////////////////// REFACTOR
-//////////////////////////////////////////////////// REFACTOR
+let servicesOptions = {
+  root: null, // defaults to browser viewport
+  rootMargin: "-50%",
+  threshold: [0], // 0 = 1pixel visibility
+};
 
-// #services intersectionObserver API
-// observe headers and rotate to correct title
+const servicesObserver = new IntersectionObserver(
+  animateServicesList,
+  servicesOptions
+);
 
-// grab list as array
-// ID service observable scrolling sections (as below or another array / 1 var)
-// compare content when intersecting
-// change html li active class if required (logic for scroll direction || increasing or decreasing change detected on compare)
-// animate
+servicesObserver.observe(services1);
+servicesObserver.observe(services2);
+servicesObserver.observe(services3);
+servicesObserver.observe(services4);
 
-// const servicesListHeader2 = document.getElementById("servicesHeader2");
-// const servicesListHeader3 = document.getElementById("servicesHeader3");
-// const servicesListHeader4 = document.getElementById("servicesHeader4");
+//////////////////////////////////////////////////
+// #projects section
 
-// let animateServicesList = (entries, observer) => {
-//   entries.forEach((entry) => {
-//     console.log(entry);
-//     // console.log(entry.boundingClientRect.top, "<- top");
-//     if (entry.boundingClientRect.top > 0 && entry.boundingClientRect.top < 50) {
-//       // console.log("trigger");
-//       // iterateBack(scrollDown);
-//       // iterateForward(scrollDown);
-//     }
-//   });
-// };
-
-// let servicesOptions = {
-//   root: null, // defaults to browser viewport
-//   rootMargin: "50%",
-//   threshold: [0], // 0 = 1pixel visibility
-// };
-
-// const servicesObserver = new IntersectionObserver(
-//   animateServicesList,
-//   servicesOptions
-// );
-
-// servicesObserver.observe(servicesListHeader2);
-// servicesObserver.observe(servicesListHeader3);
-// servicesObserver.observe(servicesListHeader4);
-
-////////// END
-////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////
-////////// #'projects' section
-
-//responsive
+// responsive ✅
 // hard code mobile first (column, img over blurb) ✅
 // check device size ✅
 // add a hide class to mobile layout blurbs ✅
 // display the 1st project blurb ✅
 // observe images and programatically switch for correct blurb when scrolled I/O of view ✅
-//  >using innerhtml (hopeflly this triggers animations) ✅
+//  >using innerhtml (trigger animations) ✅
 
 // mobile first ALL blurbs
 const projectCopyMobPos = document.querySelectorAll(".project-summary");
@@ -167,14 +111,13 @@ if (window.innerWidth > 600) {
 const projImg1 = document.getElementById("proj-img-01");
 const projImg2 = document.getElementById("proj-img-02");
 const projImg3 = document.getElementById("proj-img-03");
-// console.log(projImg1, projImg2, projImg3);
 
 let loadProjectCopy = (entries, observer) => {
   entries.forEach((entry) => {
     console.log(entry);
     if (entry.isIntersecting) {
-      //SWITCH???
-
+      // logic blocks multiple DOM updates of same content
+      // DOM updates only when new project section intersects
       if (
         entry.target.dataset.project === "0" &&
         projectCopyDeskPos.innerHTML != projectCopyMobPos[0].innerHTML

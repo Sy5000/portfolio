@@ -20,7 +20,7 @@
   </head>
   <body>
     <header class="content-wrap column-wrap">
-      <div class="h-col-1">
+      <div class="h-col-1 slideDown">
         <h1>&#10033;</h1>
         <h2>Sy_Davies</h2>
         <br />
@@ -39,7 +39,7 @@
         <div class="gradient-fill"></div>
         <!-- <hr /> -->
         <br />
-        <div class="about">
+        <div class="about slideUp">
           <h2>
             Digital projects that range from engaging and nimble UX to full
             stack web applications; streamlining business operations and
@@ -202,8 +202,8 @@
       <div class="sticky-wrap">
         <div class="sticky-div">
           <ul class="services-list display">
-            <li class="active">
-              <a class="services__link" href="#services--1">Concept</a>
+            <li>
+              <a class="services__link active" href="#services--1">Concept</a>
             </li>
             <li><a class="services__link" href="#services--2">UI/UX</a></li>
             <li>
@@ -558,173 +558,3 @@
     </footer>
   </body>
 </html>
-
-<script>
-  ///////////////////////////
-  // services li link scroll action
-
-  document
-    .querySelector(".services-list")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-
-      // Matching strategy
-      if (e.target.classList.contains("services__link")) {
-        const id = e.target.getAttribute("href");
-        document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-      }
-    });
-
-  //////////////////////////
-  // SERVICES -> link click > scroll action
-
-  //////////////////////////
-  //////////////////////////
-
-  // Pointers
-  // const projImg1 = document.getElementById("proj-img-01");
-  // const projImg2 = document.getElementById("proj-img-02");
-  // const projImg3 = document.getElementById("proj-img-03");
-  // const proj1 = document.getElementById("proj-01");
-  // const proj2 = document.getElementById("proj-02");
-  // const proj3 = document.getElementById("proj-03");
-
-  //////////////////////////
-  // IntersectionObserverAPI
-  //
-  // Callback functions
-  // const proj1obsCallback = function (entries, observer) {
-  //   entries.forEach((entry) => {
-  //     // console.log(entry);
-  //     if (entry.isIntersecting) {
-  //       proj1.classList.remove("hide");
-  //     } else {
-  //       proj1.classList.add("hide");
-  //     }
-  //   });
-  // };
-
-  // const proj2obsCallback = function (entries, observer) {
-  //   entries.forEach((entry) => {
-  //     // console.log(entry);
-  //     if (entry.isIntersecting) {
-  //       proj2.classList.remove("hide");
-  //     } else {
-  //       proj2.classList.add("hide");
-  //     }
-  //   });
-  // };
-
-  // const proj3obsCallback = function (entries, observer) {
-  //   entries.forEach((entry) => {
-  //     // console.log(entry);
-  //     if (entry.isIntersecting) {
-  //       proj3.classList.remove("hide");
-  //     } else {
-  //       proj3.classList.add("hide");
-  //     }
-  //   });
-  // };
-  // // IntersectionObserverAPI options
-  // const projObsOptions = {
-  //   root: null,
-  //   threshold: [0.3],
-  // };
-  // const projObsOptionsALT = {
-  //   root: null,
-  //   threshold: [0.99],
-  // };
-
-  // // Declare APIs
-  // const proj1obs = new IntersectionObserver(
-  //   proj1obsCallback,
-  //   projObsOptionsALT
-  // );
-  // const proj2obs = new IntersectionObserver(proj2obsCallback, projObsOptions);
-  // const proj3obs = new IntersectionObserver(proj3obsCallback, projObsOptions);
-
-  // // Assign API to DOM elements
-  // proj1obs.observe(projImg1);
-  // proj2obs.observe(projImg2);
-  // proj3obs.observe(projImg3);
-
-  ////////// END - #'projects' section
-  ////////////////////////////////////////////////////////
-
-  // };
-  /////////////
-  // console.log("js log");
-  //pointers and variables
-  // const scrollDiv = document.querySelector(".sticky-scroll-img");
-  // const el = document.querySelector(".project-img");
-  // const img1 = document.getElementById("proj-img-01");
-  // const img2 = document.getElementById("proj-img-02");
-  // const img3 = document.getElementById("proj-img-03");
-
-  //function to fade in / fade out articles
-
-  //eventlisteners to apply fadein / fadeout innerhtml active css class
-
-  // let imgPos = scrollDiv.offsetTop - document.body.scrollTop;
-
-  // document.addEventListener("scroll", (e) => {
-  //   // console.log(scrollDiv.scrollTop);
-  //   // console.log(img1.offsetTop, img2.offsetTop, img3.offsetTop, "Pos only"); /* absolute image positions */
-  // });
-
-  // window.onscroll = function (e) {
-  //   console.log(window.pageYOffset); /* find coordinates of window */
-
-  //   if (window.pageYOffset >= 3200) {
-  //     console.log("change styles now");
-  //   }
-  // };
-
-  // console.log(el);
-
-  // document.querySelector(".project-img").addEventListener("scroll", (a) => {
-  //   console.log(a);
-  // });
-  // document
-  //   .querySelector(".sticky-scroll-img")
-  //   .addEventListener("scroll", (a) => {
-  //     console.log(a);
-  //   });
-  // el.addEventListener("scroll", () => {
-  //   const scrolled = document.querySelector(".project-img").scrollTop;
-  //   console.log(scrolled);
-  // });
-
-  // const proj01 = document.getElementById("proj-01");
-  // const projImg01 = document.getElementById("proj-img-01");
-  // const proj02 = document.getElementById("proj-02");
-  // const projImg02 = document.getElementById("proj-img-02");
-  // const proj03 = document.getElementById("proj-03");
-  // const projImg03 = document.getElementById("proj-img-03");
-  // window.addEventListener("scroll", (event) => {
-  //   const image1 = document.getElementById("proj-img-01");
-
-  //   console.log("viewport was scrolled");
-  // });
-
-  // window.onscroll = function (e) {
-  //   console.log("scrolling");
-  //   if ((scrollDiv.scrollTop = 0)) {
-  //     console.log("do something");
-  //   }
-  // };
-
-  // var area = document.getElementsByClassName("project-info")[0];
-  // area.onscroll = function () {
-  //   console.log(this.scrollTop, "scrolling");
-  // };
-  // window.onscroll(function (event) {
-  //   const image1 = document.getElementsByClassName("sticky-scroll-img");
-  //   console.log("scrolling");
-  //   // if ($(this).scrollTop() > 50) {
-  //   //   image1.fadeOut();
-  //   // } else {
-  //   //   $(".scroll-hide").fadeIn();
-  //   // }
-  // });
-</script>
