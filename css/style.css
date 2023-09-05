@@ -232,33 +232,41 @@ ul {
 .services-list {
   padding: 250px 180px 250px 106px;
 }
-.sticky-div > ul > li {
-  font-size: 22pt;
-  border-bottom: solid white 2px;
-  padding: 0.25rem;
-  width: auto;
-  height: auto;
+.sticky-div > ul {
+  > li {
+    font-size: 22pt;
+    border-bottom: solid white 1px;
+    padding: 0.25rem;
+    width: auto;
+    height: auto;
+    isolation: isolate;
+  }
   > li:last-child {
     border-bottom: none;
   }
-  > a {
-    color: RGBA(234, 240, 246, 0.5);
+  > li > a {
+    /* color: RGBA(234, 240, 246, 0.5); */
+    color: white;
+    position: relative;
   }
 }
+
 .active {
   animation: example 0.3s forwards;
+  /* color: gold; */
 }
+
 /* font size to animate links // transform to animate list items (inc underline) */
 @keyframes example {
   0% {
     margin-left: 0;
-    color: RGBA(255, 255, 255, 0.5);
+    /* color: RGBA(255, 255, 255, 0.5); */
     /* font-size: 32pt; */
     /* font-size: 18pt; */
   }
   100% {
     margin-left: 5px;
-    color: rgb(255, 255, 255, 1);
+    /* color: rgb(255, 255, 255, 1); */
     /* font-size: 32pt; */
     /* transform: scale(1); */
   }
@@ -278,17 +286,16 @@ ul {
   > li {
     padding: 10px;
   }
-  > ul {
-    margin-left: 2rem;
-    padding: 10px; /* nested lists */
-    list-style-type: square;
-    > li {
-      padding: 5px;
-      font-weight: 600;
-    }
+}
+.nestedList {
+  margin-left: 2rem;
+  padding: 10px; /* nested lists */
+  list-style-type: square;
+  > li {
+    padding: 5px;
+    font-weight: 600;
   }
 }
-
 /*** /SERVICES ***/
 
 /*** PROJECTS ***/

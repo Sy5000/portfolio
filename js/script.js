@@ -61,6 +61,7 @@ let animateServicesList = (entries, observer) => {
     }
     if (entry.isIntersecting && entry.target.id === "services--4") {
       toggleServicesOff(serviceList);
+      serviceList[3].classList.add("active");
     }
   });
 };
