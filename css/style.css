@@ -2,7 +2,7 @@
   --gradient: linear-gradient(to right, #cb1c68 -25%, #00ffff 125%);
 }
 * {
-  border: dashed red 1px;
+  /* border: dashed red 1px; */
   box-sizing: border-box;
 }
 body {
@@ -15,7 +15,7 @@ body {
   color: #ffffff;
 }
 div {
-  border: 0.5px dotted yellow;
+  /* border: 0.5px dotted yellow; */
 }
 /* unvisited link */
 a {
@@ -36,9 +36,9 @@ a:active {
   color: blue;
 }
 .content-wrap {
+  /* border: dashed 1px rgb(247, 35, 233); */
   width: 1272px; /* 12 col grid */
   padding: 1em; /* 16px margins/32 gutters */
-  border: dashed 1px rgb(247, 35, 233);
   margin: auto;
 }
 /* nav {
