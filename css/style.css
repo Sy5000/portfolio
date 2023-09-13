@@ -2,7 +2,7 @@
   --gradient: linear-gradient(to right, #cb1c68 -25%, #00ffff 125%);
 }
 * {
-  /* border: dashed red 1px; */
+  border: dashed red 1px;
   box-sizing: border-box;
 }
 body {
@@ -15,7 +15,7 @@ body {
   color: #ffffff;
 }
 div {
-  /* border: 0.5px dotted yellow; */
+  border: 0.5px dotted yellow;
 }
 /* unvisited link */
 a {
@@ -36,7 +36,7 @@ a:active {
   color: blue;
 }
 .content-wrap {
-  /* border: dashed 1px rgb(247, 35, 233); */
+  border: dashed 1px rgb(247, 35, 233);
   width: 1272px; /* 12 col grid */
   padding: 1em; /* 16px margins/32 gutters */
   margin: auto;
@@ -228,18 +228,18 @@ ul {
   top: 0;
   height: 100vh;
   width: 498px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .services-list {
-  padding: 250px 180px 250px 106px;
 }
 .sticky-div > ul {
   > li {
     font-size: 22pt;
     border-bottom: solid white 1px;
     padding: 0.25rem;
-    width: auto;
-    height: auto;
-    isolation: isolate;
+    width: 25vw;
   }
   > li:last-child {
     border-bottom: none;
@@ -248,6 +248,7 @@ ul {
     /* color: RGBA(234, 240, 246, 0.5); */
     color: white;
     position: relative;
+    text-decoration: none;
   }
 }
 
@@ -273,9 +274,19 @@ ul {
 }
 .sticky-scroll {
   width: 604px;
-
   > div:last-child {
-    height: 100vh;
+    margin-bottom: 33vh;
+  }
+}
+.sticky-scroll > div {
+  margin: 12.5vh 0;
+}
+.sticky-scroll {
+  > div:first-child {
+    margin-top: 20vh;
+  }
+  > div:last-child {
+    margin-bottom: 30vh;
   }
 }
 .sticky-scroll > div > ul {
@@ -405,7 +416,7 @@ ul {
   display: flex;
   align-items: center;
   > div {
-    height: 55vh;
+    height: auto;
   }
 }
 .project-stack {
