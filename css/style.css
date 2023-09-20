@@ -28,7 +28,6 @@ a:visited {
 }
 /* mouse over link */
 a:hover {
-  /* color: hotpink; */
   text-decoration: underline;
 }
 /* selected link */
@@ -133,27 +132,26 @@ ul {
   overflow-y: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-
+  scrollbar-width: none; /* mozilla bug - hide scrollbar */
   gap: 2rem;
   align-self: center;
   display: inherit;
 }
 #tech-logos::-webkit-scrollbar {
   display: none;
-  /* width: 5px;
-  height: 8px;
-  background-color: #aaa; */
+}
+#tech-logos::-moz-webkit-scrollbar {
+  display: none;
 }
 #tech-logos::-webkit-scrollbar-thumb {
-  background-color: black;
+  /* background-color: black; */
 }
-#tech-logos {
-  > div > img {
-    width: 74px;
-    height: 74px;
-    overflow: hidden;
-  }
+#tech-logos > div > img {
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
 }
+
 .left {
   position: absolute;
   left: 0;
@@ -234,42 +232,34 @@ ul {
 }
 .services-list {
 }
-.sticky-div > ul {
-  > li {
-    font-size: 22pt;
-    border-bottom: solid white 1px;
-    padding: 0.25rem;
-    width: 20vw;
-  }
-  > li:last-child {
-    border-bottom: none;
-  }
-  > li > a {
-    /* color: RGBA(234, 240, 246, 0.5); */
-    color: white;
-    position: relative;
-    text-decoration: none;
-  }
+.sticky-div > ul > li {
+  font-size: 22pt;
+  border-bottom: solid white 1px;
+  padding: 0.25rem;
+  width: 17.5vw;
+}
+.sticky-div > ul > li:last-child {
+  border-bottom: none;
+}
+/* nested */
+
+.sticky-div > ul > li > li > a {
+  color: white;
+  position: relative;
+  text-decoration: none;
 }
 
 .active {
   animation: example 0.3s forwards;
-  /* color: gold; */
 }
 
 /* font size to animate links // transform to animate list items (inc underline) */
 @keyframes example {
   0% {
     margin-left: 0;
-    /* color: RGBA(255, 255, 255, 0.5); */
-    /* font-size: 32pt; */
-    /* font-size: 18pt; */
   }
   100% {
     margin-left: 5px;
-    /* color: rgb(255, 255, 255, 1); */
-    /* font-size: 32pt; */
-    /* transform: scale(1); */
   }
 }
 .sticky-scroll {
@@ -291,9 +281,13 @@ ul {
 }
 .sticky-scroll > div > ul {
   margin-left: 2rem;
-  /* list-style-type: lower-roman; */
+  margin-top: 2rem;
   font-style: italic;
   font-weight: 900;
+  > lh {
+    font-size: larger;
+    margin-left: -0.5rem;
+  }
   > li {
     padding: 10px;
   }
@@ -311,18 +305,6 @@ ul {
 
 /*** PROJECTS ***/
 /*** animation ***/
-
-/* .slide-effect {
-  font-size: 2rem;
-  gap: 1rem;
-  position: relative;
-  overflow: hidden;
-  height: auto;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .slide-effect-wrap {
   overflow: hidden;
 }
@@ -409,7 +391,6 @@ ul {
   width: 100%;
 }
 .project-info {
-  /* padding: auto 1rem; */
   padding-left: 1rem;
   padding-right: 1rem;
   height: inherit;
@@ -443,12 +424,10 @@ ul {
   /* 10 cols / 11 gutters */
   width: 1092px;
   margin: auto;
-  /* padding: 0 16px 0 16px; */
 }
 .hero-img {
   margin: auto;
   width: 100%;
-  /* margin: 0 5% 0 5%; */
   border-radius: 10px;
 }
 .project-rundown {
@@ -571,7 +550,6 @@ footer {
   grid-area: blurb;
   border-bottom: #343134 3px solid;
   align-self: end;
-  /* padding-left: 1rem; */
 }
 .work-links {
   grid-area: work;
@@ -580,23 +558,17 @@ footer {
 .socials {
   grid-area: socials;
   margin-top: 0.5rem;
-  /* padding-left: 1rem; */
 }
 .home-link {
   display: flex;
   justify-content: flex-end;
   margin: 1rem 0 0 -1rem;
   padding: 1rem 0 0 0;
-  > a {
-    color: #343134;
-  }
 }
-.work-links,
-.socials {
-  > ul > li > a {
-    color: #343134;
-    font-weight: 900;
-  }
+.home-link > a,
+.socials > ul > li > a,
+.work-links > ul > li > a {
+  color: #343134;
 }
 .work-links > hr,
 .socials > hr {
@@ -606,12 +578,10 @@ footer {
   padding: 0 3rem 0 0;
   border-bottom: #343134 solid 3px;
 }
-
 /*** /FOOTER ***/
 
-/********************/
-/********************/
-
+/*** Media Queries ***/
+/*** ************* ***/
 @media screen and (max-width: 600px) {
   /***** about *****/
   .content-wrap {
@@ -651,13 +621,16 @@ footer {
     margin-bottom: 10vh;
   }
   .sticky-scroll-img {
-    width: 100%;
-    padding: 1rem;
+    /* width: 100%;
+    padding: 1rem; */
   }
-  .project-img:first-child {
-    margin-top: 10vh;
+  .sticky-scroll-img > a {
+    display: block;
+    height: max-content;
+    margin: 0 0 0 0;
   }
   .project-img {
+    margin: 0 0 0 0;
     margin-bottom: 0rem;
   }
 
